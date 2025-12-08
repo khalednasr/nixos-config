@@ -16,20 +16,27 @@
     };
   };
 
-  outputs = { nixpkgs, ... }@inputs:
+  outputs =
+    { nixpkgs, ... }@inputs:
     let
-      mkNixosConfig = host: modules_list:
+      mkNixosConfig =
+        host: modules_list:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             globals = import ./hosts/globals.nix;
-            locals = import  ./hosts/${host}/locals.nix;
+            locals = import ./hosts/${host}/locals.nix;
           };
           modules = modules_list;
         };
-    in {
+    in
+    {
       nixosConfigurations = {
-        yoyo = mkNixosConfig "yoyo" [ ./hosts/yoyo ./modules/core ./modules/desktop];
+        yoyo = mkNixosConfig "yoyo" [
+          ./hosts/yoyo
+          ./modules/core
+          ./modules/desktop
+        ];
       };
     };
 }

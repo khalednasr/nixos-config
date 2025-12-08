@@ -1,5 +1,12 @@
 # NixOS Module
-{ inputs, pkgs, globals, locals, ... }: {
+{
+  inputs,
+  pkgs,
+  globals,
+  locals,
+  ...
+}:
+{
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
@@ -25,7 +32,10 @@
     settings = {
       download-buffer-size = 200000000;
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 
@@ -34,13 +44,19 @@
 
   # Nix-ld settings
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [ stdenv.cc.cc zlib ];
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+  ];
 
   # User configuration
   users.users.${globals.username} = {
     isNormalUser = true;
     description = "${globals.userDescription}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh; # set default shell
     ignoreShellProgramCheck = true;
   };
@@ -58,7 +74,11 @@
         stateVersion = "${globals.stateVersion}";
       };
     };
-    extraSpecialArgs = { inherit inputs; inherit globals; inherit locals;};
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit globals;
+      inherit locals;
+    };
   };
 
   system.stateVersion = "${globals.stateVersion}";

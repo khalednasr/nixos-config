@@ -1,5 +1,6 @@
 # Home Manager Module
-{ globals, locals, ... }: {
+{ globals, locals, ... }:
+{
   home.sessionVariables = {
     EDITOR = "nvim";
 

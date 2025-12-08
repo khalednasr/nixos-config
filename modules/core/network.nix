@@ -1,5 +1,6 @@
 # NixOS Module
-{ locals, ... }: {
+{ locals, ... }:
+{
   networking.hostName = "${locals.hostName}";
 
   # Enable networking

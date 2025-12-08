@@ -1,5 +1,6 @@
 # Home Manager Module
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   imports = [ inputs.nixvim.homeModules.nixvim ];
 
   programs.nixvim = {

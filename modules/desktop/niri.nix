@@ -1,5 +1,6 @@
 # NixOS Module
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.niri.enable = true;
 
   environment.variables.NIXOS_OZONE_WL = "1";

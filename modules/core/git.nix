@@ -1,5 +1,6 @@
 # Home Manager Module
-{ globals, ... }: {
+{ globals, ... }:
+{
   programs.git = {
     enable = true;
     settings = {
@@ -7,7 +8,14 @@
       user.name = "${globals.gitUsername}";
       user.email = "${globals.gitEmail}";
       push.autoSetupRemote = true;
-      url = { "https://github.com/" = { insteadOf = [ "gh:" "github:" ]; }; };
+      url = {
+        "https://github.com/" = {
+          insteadOf = [
+            "gh:"
+            "github:"
+          ];
+        };
+      };
     };
   };
 
