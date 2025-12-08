@@ -23,7 +23,7 @@
       scrolloff = 8;
       sidescrolloff = 8;
     };
-
+ 
     # Colorscheme
     colorschemes.gruvbox-material = {
       enable = true;
@@ -39,7 +39,7 @@
       enable = true;
       servers = {
         # Nix
-        nixd.enable = true;
+        nil_ls.enable = true;
 
         # Python
         basedpyright.enable = true;
@@ -55,16 +55,6 @@
       };
     };
 
-    # Autocomplete
-    plugins.blink-cmp = {
-      enable = true;
-      settings = {
-        documentation.auto_show = true;
-        keymap.preset = "super-tab";
-        signature.enabled = true;
-      };
-    };
-
     # Treesitter
     plugins.treesitter = {
       enable = true;
@@ -75,12 +65,16 @@
       };
     };
 
+    # Yazi
+    plugins.yazi.enable = true;
+    plugins.yazi.settings.open_for_directories = true;
+    globals.loaded_netrwPlugin = 1;
+
     # Snacks
     plugins.snacks = {
       enable = true;
       settings = {
         picker.enable = true;
-        bigfile.enable = true;
         bufdelete.enable = true;
         indent.enable = true;
         scroll.enable = true;
@@ -88,22 +82,70 @@
       };
     };
 
-    # Simple plugins with default configuration
-    plugins.yazi.enable = true;
+    # Mini.nvim
+    plugins.mini = {
+      enable = true;
+      modules = {
+        ai = {};
+        pairs = {};
+        surround = {};
+        move = {
+          options.reindent_linewise = true;
+          mappings = {
+            left = "<C-h>";
+            right = "<C-l>";
+            down = "<C-j>";
+            up = "<C-k>";
+            line_left = "<C-h>";
+            line_right = "<C-l>";
+            line_down = "<C-j>";
+            line_up = "<C-k>";
+          };
+        };
+      };
+    };
+
+    # Autocomplete
+    plugins.blink-cmp = {
+      enable = true;
+      settings = {
+        documentation.auto_show = true;
+        signature.enabled = true;
+        completion.list.selection.preselect = false;
+        keymap = {
+          preset = "default";
+          "<CR>" = [ "accept" "fallback" ];
+          "<Tab>" = [ "select_next" "fallback" ];
+          "<S-Tab>" = [ "select_prev" "fallback" ];
+          "C-n" = [ "snippet_forward" "fallback" ];
+          "C-p" = [ "snippet_backward" "fallback" ];
+        };
+      };
+    };
+
+    # Simple plugins with minimal configuration
+    plugins.flash.enable = true;
+    plugins.noice.enable = true;
     plugins.web-devicons.enable = true;
     plugins.lualine.enable = true;
     plugins.bufferline.enable = true;
+    plugins.visual-multi.enable = true;
 
     # Custom keymaps
     globals.mapleader = " ";
     keymaps = [
-      # Buffer navigation
+      # Buffers
       { key = "H"; action = "<cmd>bp<cr>"; mode = "n"; options.desc = "Previous buffer"; }
       { key = "L"; action = "<cmd>bn<cr>"; mode = "n"; options.desc = "Next buffer"; }
+      { key = "<leader>x"; action = "<cmd>bd<cr>"; mode = "n"; options.desc = "Next buffer"; }
 
       # Horizontal scrolling
       { key = "<C-S-h>"; action = "20zh"; mode = ["n"]; options.desc = "Scroll left"; }
       { key = "<C-S-l>"; action = "20zl"; mode = ["n"]; options.desc = "Scroll right"; }
+
+      # Flash navigation
+      { key = "f"; action.__raw = "function() require(\"flash\").jump() end"; mode = ["n" "x" "o"]; options.desc = "Flash jump"; }
+      { key = "F"; action.__raw = "function() require(\"flash\").treesitter() end"; mode = ["n" "x" "o"]; options.desc = "Flash treesitter"; }
 
       # Clipboard interaction
       { key = "<leader>y"; action = "\"+y"; mode = ["n" "v"]; options.desc = "Yank to clipboard"; }
@@ -130,6 +172,16 @@
       { key = "<leader>sc"; action.__raw = "function() Snacks.picker.commands() end"; mode = ["n"]; options.desc = "Search commands"; }
       { key = "<leader>sk"; action.__raw = "function() Snacks.picker.keymaps() end"; mode = ["n"]; options.desc = "Search keymaps"; }
       { key = "<leader>sh"; action.__raw = "function() Snacks.picker.help() end"; mode = ["n"]; options.desc = "Search help pages"; }
+
+      # LSP
+      { key = "<leader>cf"; action = "<cmd>lua vim.lsp.buf.format({async = true})<cr>"; options.desc = "Format code"; }
+      { key = "<leader>ck"; action = "<cmd>lua vim.lsp.buf.hover()<cr>"; options.desc = "Hover Info"; }
+      { key = "<leader>cd"; action = "<cmd>lua vim.lsp.buf.definition()<cr>"; options.desc = "Go to definition"; }
+      { key = "<leader>cD"; action = "<cmd>lua vim.lsp.buf.declaration()<cr>"; options.desc = "Go to declaration"; }
+      { key = "<leader>cs"; action = "<cmd>lua vim.lsp.buf.signature_help()<cr>"; options.desc = "Signature help"; }
+      { key = "<leader>cr"; action = "<cmd>lua vim.lsp.buf.rename()<cr>"; options.desc = "Rename"; }
+      { key = "<leader>ca"; action = "<cmd>lua vim.lsp.buf.code_action()<cr>"; options.desc = "Code actions"; }
+      { key = "<leader>ct"; action = "<cmd>lua vim.diagnostic.open_float()<CR>"; options.desc = "Show line diagnostics"; }
     ];
   };
 }
