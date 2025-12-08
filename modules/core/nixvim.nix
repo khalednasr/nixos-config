@@ -109,16 +109,16 @@
     plugins.blink-cmp = {
       enable = true;
       settings = {
-        documentation.auto_show = true;
         signature.enabled = true;
+        completion.documentation.auto_show = true;
         completion.list.selection.preselect = false;
         keymap = {
           preset = "default";
           "<CR>" = [ "accept" "fallback" ];
           "<Tab>" = [ "select_next" "fallback" ];
           "<S-Tab>" = [ "select_prev" "fallback" ];
-          "C-n" = [ "snippet_forward" "fallback" ];
-          "C-p" = [ "snippet_backward" "fallback" ];
+          "<C-n>" = [ "snippet_forward" "fallback" ];
+          "<C-p>" = [ "snippet_backward" "fallback" ];
         };
       };
     };
@@ -172,6 +172,7 @@
       { key = "<leader>sc"; action.__raw = "function() Snacks.picker.commands() end"; mode = ["n"]; options.desc = "Search commands"; }
       { key = "<leader>sk"; action.__raw = "function() Snacks.picker.keymaps() end"; mode = ["n"]; options.desc = "Search keymaps"; }
       { key = "<leader>sh"; action.__raw = "function() Snacks.picker.help() end"; mode = ["n"]; options.desc = "Search help pages"; }
+      { key = "<leader>sn"; action.__raw = "function() Snacks.picker.notifications() end"; mode = ["n"]; options.desc = "Search notifications"; }
 
       # LSP
       { key = "<leader>cf"; action = "<cmd>lua vim.lsp.buf.format({async = true})<cr>"; options.desc = "Format code"; }
