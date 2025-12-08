@@ -1,4 +1,4 @@
-# NixOS Module
+# Home Manager Module
 { globals, ... }: {
   programs.git = {
     enable = true;

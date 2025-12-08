@@ -6,9 +6,6 @@
     fd
 
     gcc
-    rustc
-    cargo
-    neovim
     git
     yazi
   ];

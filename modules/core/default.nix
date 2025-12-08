@@ -12,5 +12,6 @@
     ./env.nix
     ./zsh.nix
     ./git.nix
+    ./nixvim.nix
   ];
 }
