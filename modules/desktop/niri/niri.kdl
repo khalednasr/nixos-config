@@ -196,4 +196,5 @@ binds {
   Mod+Shift+P { power-off-monitors; }
 }
 
+include "displays.kdl"
 include "noctalia.kdl"

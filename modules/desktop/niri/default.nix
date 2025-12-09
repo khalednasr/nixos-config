@@ -1,5 +1,5 @@
 # NixOS Module
-{ pkgs, globals, ... }:
+{ pkgs, globals, locals, ... }:
 {
   programs.niri.enable = true;
 
@@ -21,5 +21,6 @@
 
   home-manager.users.${globals.username} = {
     home.file.".config/niri/config.kdl".source = ./niri.kdl;
+    home.file.".config/niri/displays.kdl".text = locals.niriDisplayConfig;
   };
 }
