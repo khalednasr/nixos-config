@@ -1,5 +1,11 @@
 # Home Manager Module
-{ pkgs, globals, locals, ... }: {
+{
+  pkgs,
+  globals,
+  locals,
+  ...
+}:
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;

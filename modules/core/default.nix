@@ -1,5 +1,6 @@
 # NixOS Module
-{ globals, ... }: { 
+{ globals, ... }:
+{
   # NixOS modules
   imports = [
     ./system.nix

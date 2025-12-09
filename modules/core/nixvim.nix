@@ -148,6 +148,10 @@
       { key = "f"; action.__raw = "function() require(\"flash\").jump() end"; mode = ["n" "x" "o"]; options.desc = "Flash jump"; }
       { key = "F"; action.__raw = "function() require(\"flash\").treesitter() end"; mode = ["n" "x" "o"]; options.desc = "Flash treesitter"; }
 
+      # Add empty lines in normal mode
+      { key = "<leader>o"; action = "o<ESC>"; mode = ["n"]; options.desc = "Add empty line below"; }
+      { key = "<leader>O"; action = "O<ESC>"; mode = ["n"]; options.desc = "Add empty line above"; }
+
       # Clipboard interaction
       { key = "<leader>y"; action = "\"+y"; mode = ["n" "v"]; options.desc = "Yank to clipboard"; }
       { key = "<leader>d"; action = "\"+d"; mode = ["n" "v"]; options.desc = "Delete into clipboard"; }
@@ -159,7 +163,7 @@
       { key = "<C-v>"; action = "d\"+P"; mode = ["v"]; options.desc = "Replace selection from clipboard"; }
 
       # Selections
-      { key = "<C-a>"; action = "ggvG"; mode = ["n"]; options.desc = "Select all"; }
+      { key = "<C-a>"; action = "gg0vG"; mode = ["n"]; options.desc = "Select all"; }
 
       # File explorer and picker
       { key = "<leader>e"; action = "<cmd>Yazi cwd<cr>"; mode = ["n" "v"]; options.desc = "Yazi in CWD"; }

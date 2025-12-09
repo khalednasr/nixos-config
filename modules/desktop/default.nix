@@ -3,7 +3,7 @@
 {
   # NixOS modules
   imports = [
-    ./niri.nix
+    ./niri
     ./misc.nix
   ]
   ++ (if locals.laptop then [ ./laptop.nix ] else [ ]);
