@@ -3,7 +3,7 @@
   laptop = true;
 
   niriDisplayConfig = ''
-    output "eDP-2" {
+    output "California Institute of Technology 0x1410 Unknown" {
       mode "3072x1920@120.002"
       scale 1.75
     }
