@@ -3,8 +3,9 @@
 {
   # NixOS modules
   imports = [
-    ./ly.nix
+    ./services.nix
     ./niri
+    ./bluetooth.nix
     ./misc.nix
   ]
   ++ (if locals.laptop then [ ./laptop.nix ] else [ ]);

@@ -5,7 +5,6 @@
   imports = [
     ./system.nix
     ./network.nix
-    ./services.nix
     ./misc.nix
   ];
 

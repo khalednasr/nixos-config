@@ -12,6 +12,7 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.efiSupport = true;
+  boot.loader.grub.fontSize = 42;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -49,10 +50,6 @@
     zlib
   ];
 
-  # Bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
   # User configuration
   users.users.${globals.username} = {
     isNormalUser = true;
@@ -60,6 +57,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "seat"
     ];
     shell = pkgs.zsh; # set default shell
     ignoreShellProgramCheck = true;

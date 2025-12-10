@@ -35,6 +35,7 @@
         yoyo = mkNixosConfig "yoyo" [
           ./hosts/yoyo
           ./modules/core
+          ./modules/core/gpu/nvidia-amd-hybrid.nix
           ./modules/desktop
         ];
       };
