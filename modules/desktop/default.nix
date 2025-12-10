@@ -3,6 +3,7 @@
 {
   # NixOS modules
   imports = [
+    ./ly.nix
     ./niri
     ./misc.nix
   ]
@@ -11,5 +12,7 @@
   # Home manager modules
   home-manager.users.${globals.username}.imports = [
     ./noctalia.nix
+    ./kitty.nix
+    ./firefox.nix
   ];
 }

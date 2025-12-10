@@ -5,6 +5,7 @@
   imports = [
     ./system.nix
     ./network.nix
+    ./services.nix
     ./misc.nix
   ];
 
@@ -14,5 +15,6 @@
     ./zsh.nix
     ./git.nix
     ./nixvim.nix
+    ./yazi.nix
   ];
 }

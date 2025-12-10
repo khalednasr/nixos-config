@@ -131,6 +131,7 @@
     plugins.lualine.enable = true;
     plugins.bufferline.enable = true;
     plugins.visual-multi.enable = true;
+    plugins.sleuth.enable = true;
 
     # Custom keymaps
     globals.mapleader = " ";

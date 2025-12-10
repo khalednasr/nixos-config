@@ -5,9 +5,7 @@
     ripgrep
     fzf
     fd
-
+    btop
     gcc
-    git
-    yazi
   ];
 }

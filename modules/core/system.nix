@@ -49,6 +49,10 @@
     zlib
   ];
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   # User configuration
   users.users.${globals.username} = {
     isNormalUser = true;
