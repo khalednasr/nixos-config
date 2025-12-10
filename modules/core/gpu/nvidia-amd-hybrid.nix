@@ -23,4 +23,6 @@
       nvidiaBusId = locals.nvidiaID;
     };
   };
+
+  hardware.nvidia-container-toolkit.enable = true;
 }

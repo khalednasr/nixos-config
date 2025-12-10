@@ -43,13 +43,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Nix-ld settings
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-    zlib
-  ];
-
   # User configuration
   users.users.${globals.username} = {
     isNormalUser = true;
