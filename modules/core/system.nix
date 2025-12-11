@@ -15,7 +15,7 @@
   boot.loader.grub.fontSize = 42;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Time zone and internationalisation properties
   time.timeZone = "${globals.timeZone}";
@@ -50,7 +50,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "seat"
     ];
     shell = pkgs.zsh; # set default shell
     ignoreShellProgramCheck = true;

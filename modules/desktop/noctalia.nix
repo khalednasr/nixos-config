@@ -1,4 +1,11 @@
-{ pkgs, lib, inputs, globals, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  globals,
+  locals,
+  ...
+}:
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -35,15 +42,11 @@
             }
           ];
           right = [
-            {
-              id = "Tray";
-            }
-            {
-              id = "NotificationHistory";
-            }
-            {
-              id = "Battery";
-            }
+            { id = "Tray"; }
+            { id = "NotificationHistory"; }
+          ]
+          ++ (if locals.laptop then [ { id = "Battery"; } ] else [ ])
+          ++ [
             {
               id = "Volume";
             }
@@ -84,7 +87,6 @@
         gtk = true;
         qt = true;
         kitty = true;
-        pywalfox = true;
         niri = true;
       };
     };
@@ -102,7 +104,7 @@
   # in niri configuration, place a dummy file there to prevent niri from failing
   # to load configuration
   home.activation = {
-    niri_noctalia_integration = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    niri_noctalia_integration = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       touch ${globals.homeDir}/.config/niri/noctalia.kdl
     '';
   };

@@ -2,10 +2,12 @@ spawn-at-startup "noctalia-shell"
 
 input {
   keyboard {
+    repeat-delay 300
+    repeat-rate 30
+    numlock
     xkb {
       layout "de,eg"
     }
-    numlock
   }
 
   touchpad {

@@ -6,6 +6,7 @@
     ./services.nix
     ./niri
     ./bluetooth.nix
+    ./ddcutil.nix
     ./social.nix
     ./misc.nix
   ]

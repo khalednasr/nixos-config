@@ -6,7 +6,7 @@
     modesetting.enable = true;
     open = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     # Helpful on laptops to power down the dGPU when idle
     powerManagement.enable = true;
