@@ -1,4 +1,4 @@
-{ pkgs, inputs, globals, ... }:
+{ pkgs, lib, inputs, globals, ... }:
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -96,5 +96,14 @@
       name = "adw-gtk3";
       package = pkgs.adw-gtk3;
     };
+  };
+
+  # In case noctalia-shell has never been run and noctalia.kdl does not exist
+  # in niri configuration, place a dummy file there to prevent niri from failing
+  # to load configuration
+  home.activation = {
+    niri_noctalia_integration = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      touch ${globals.homeDir}/.config/niri/noctalia.kdl
+    '';
   };
 }
