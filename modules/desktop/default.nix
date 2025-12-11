@@ -6,6 +6,7 @@
     ./services.nix
     ./niri
     ./bluetooth.nix
+    ./social.nix
     ./misc.nix
   ]
   ++ (if locals.laptop then [ ./laptop.nix ] else [ ]);

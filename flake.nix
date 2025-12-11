@@ -38,6 +38,13 @@
           ./modules/core/gpu/nvidia-amd-hybrid.nix
           ./modules/desktop
         ];
+
+        numerino = mkNixosConfig "numerino" [
+          ./hosts/numerino
+          ./modules/core
+          ./modules/core/gpu/nvidia.nix
+          ./modules/desktop
+        ];
       };
     };
 }
