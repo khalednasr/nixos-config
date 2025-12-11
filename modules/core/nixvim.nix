@@ -43,8 +43,13 @@
         nil_ls.enable = true;
 
         # Python
-        basedpyright.enable = true;
-        ruff.enable = true;
+        pylsp = {
+          enable = true;
+          settings.plugins.pycodestyle = {
+            ignore = [ "W391" ];
+            maxLineLength = 120;
+          };
+        };
 
         # Rust
         rust_analyzer.enable = true;
