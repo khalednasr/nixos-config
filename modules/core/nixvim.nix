@@ -3,6 +3,11 @@
 {
   imports = [ inputs.nixvim.homeModules.nixvim ];
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   programs.nixvim = {
     enable = true;
 
@@ -34,6 +39,15 @@
         transparent_background = 2; 
       };
     };
+
+    # Simple plugins with minimal configuration
+    plugins.flash.enable = true;
+    plugins.noice.enable = true;
+    plugins.web-devicons.enable = true;
+    plugins.lualine.enable = true;
+    plugins.bufferline.enable = true;
+    plugins.visual-multi.enable = true;
+    plugins.sleuth.enable = true;
 
     # LSP
     plugins.lsp = {
@@ -73,7 +87,7 @@
 
     # Yazi
     plugins.yazi.enable = true;
-    plugins.yazi.settings.open_for_directories = true;
+    plugins.yazi.settings.open_for_directories = false;
     globals.loaded_netrwPlugin = 1;
 
     # Snacks
@@ -129,14 +143,39 @@
       };
     };
 
-    # Simple plugins with minimal configuration
-    plugins.flash.enable = true;
-    plugins.noice.enable = true;
-    plugins.web-devicons.enable = true;
-    plugins.lualine.enable = true;
-    plugins.bufferline.enable = true;
-    plugins.visual-multi.enable = true;
-    plugins.sleuth.enable = true;
+    plugins.dashboard = {
+      enable = true;
+      settings = {
+        theme = "hyper";
+        config = {
+          mru.enable = false;
+          project.enable = false;
+          header = [
+            "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
+            "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║"
+            "██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║"
+            "██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║"
+            "██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║"
+            "╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
+          ];
+          footer = [
+            "Made with ❤️"
+          ];
+          shortcut = [
+            {
+              desc = "File Picker";
+              key = "f";
+              action.__raw = "function() Snacks.picker.files() end";
+            }
+            {
+              desc = "File Explorer";
+              key = "e";
+              action = "Yazi";
+            }
+          ];
+        };
+      };
+    };
 
     # Custom keymaps
     globals.mapleader = " ";
@@ -172,8 +211,8 @@
       { key = "<C-a>"; action = "gg0vG"; mode = ["n"]; options.desc = "Select all"; }
 
       # File explorer and picker
-      { key = "<leader>e"; action = "<cmd>Yazi cwd<cr>"; mode = ["n" "v"]; options.desc = "Yazi in CWD"; }
-      { key = "<leader>E"; action = "<cmd>Yazi<cr>"; mode = ["n" "v"]; options.desc = "Yazi at current buffer"; }
+      { key = "<leader>e"; action = "<cmd>Yazi<cr>"; mode = ["n" "v"]; options.desc = "Yazi at current buffer"; }
+      { key = "<leader>E"; action = "<cmd>Yazi cwd<cr>"; mode = ["n" "v"]; options.desc = "Yazi in CWD"; }
       { key = "<leader>f"; action.__raw = "function() Snacks.picker.files() end"; mode = ["n"]; options.desc = "Pick file"; }
 
       # Search

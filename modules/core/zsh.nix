@@ -31,7 +31,7 @@
     };
 
     shellAliases = {
-      nec = "cd ${globals.repoDir} && nvim .";
+      nec = "cd ${globals.repoDir} && nvim";
       nrb = "sudo nixos-rebuild switch --flake path:${globals.repoDir}#${locals.hostName}";
       ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d";
 

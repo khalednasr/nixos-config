@@ -6,8 +6,6 @@
   environment.variables = {
     XDG_CURRENT_DESKTOP = "niri";
     QT_QPA_PLATFORM = "wayland;xcb";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
-    QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
     NIXOS_OZONE_WL = "1";
   };

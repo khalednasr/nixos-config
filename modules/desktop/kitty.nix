@@ -1,13 +1,26 @@
 # Home Manager Module
-{ ... }:
+{ globals, ... }:
 {
   programs.kitty = {
     enable = true;
     font.name = "Maple Mono";
 
-    # Include Nocatalia theme
-    extraConfig = ''
-      include current-theme.conf
-    '';
+    settings = {
+      confirm_os_window_close = 0;
+    };
+
+    extraConfig = (
+      if globals.desktopShell == "noctalia" then
+      ''
+        include current-theme.conf
+      ''
+      else if globals.desktopShell == "dms" then
+      ''
+        include dank-theme.conf
+        include dank-tabs.conf
+      ''
+      else ''
+      ''
+    );
   };
 }

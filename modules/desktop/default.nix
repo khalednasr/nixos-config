@@ -3,8 +3,9 @@
 {
   # NixOS modules
   imports = [
-    ./services.nix
+    ./greeter
     ./niri
+    ./services.nix
     ./bluetooth.nix
     ./ddcutil.nix
     ./social.nix
@@ -14,7 +15,7 @@
 
   # Home manager modules
   home-manager.users.${globals.username}.imports = [
-    ./noctalia.nix
+    ./shell
     ./kitty.nix
     ./firefox.nix
   ];

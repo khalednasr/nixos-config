@@ -10,7 +10,6 @@
 
   # Home manager modules
   home-manager.users.${globals.username}.imports = [
-    ./env.nix
     ./zsh.nix
     ./git.nix
     ./nixvim.nix

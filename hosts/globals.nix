@@ -12,5 +12,8 @@ rec {
   locale = "en_US.UTF-8";
   timeZone = "Europe/Berlin";
 
+  desktopGreeter = "tuigreet";
+  desktopShell = "dms";
+
   stateVersion = "26.05";
 }

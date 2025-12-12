@@ -1,3 +1,4 @@
+# Home Manager Module
 {
   pkgs,
   lib,
@@ -92,6 +93,10 @@
     };
   };
 
+  home.packages = [
+    pkgs.papirus-icon-theme
+  ];
+
   gtk = {
     enable = true;
     theme = {
@@ -99,6 +104,29 @@
       package = pkgs.adw-gtk3;
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+
+    qt5ctSettings = {
+      Appearance = {
+        color_scheme_path = "${globals.homeDir}/.config/qt6ct/colors/noctalia.conf";
+        custom_palette = true;
+        icon_theme = "Papirus-Dark";
+      };
+    };
+
+    qt6ctSettings = {
+      Appearance = {
+        color_scheme_path = "${globals.homeDir}/.config/qt6ct/colors/noctalia.conf";
+        custom_palette = true;
+        icon_theme = "Papirus-Dark";
+      };
+    };
+  };
+
+  home.file."./.config/niri/shell_config.kdl".source = ./niri_shell_config.kdl;
 
   # In case noctalia-shell has never been run and noctalia.kdl does not exist
   # in niri configuration, place a dummy file there to prevent niri from failing
