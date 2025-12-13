@@ -16,7 +16,7 @@
   # Home manager modules
   home-manager.users.${globals.username}.imports = [
     ./shell
-    ./kitty.nix
+    ./terminal
     ./firefox.nix
   ];
 }

@@ -75,5 +75,10 @@
     };
   };
 
+  environment.variables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   system.stateVersion = "${globals.stateVersion}";
 }

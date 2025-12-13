@@ -1,5 +1,3 @@
-spawn-sh-at-startup "noctalia-shell"
-
 input {
   keyboard {
     repeat-delay 300
@@ -64,16 +62,6 @@ window-rule {
 hotkey-overlay { skip-at-startup; }
 
 binds {
-  Mod+T hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
-  Mod+B hotkey-overlay-title="Open a Browser" { spawn "firefox"; }
-  Mod+E hotkey-overlay-title="Open a File Explorer" { spawn-sh "kitty -e yazi"; }
-
-  Mod+D hotkey-overlay-title="Run an Application: noctalia-launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-  Super+Shift+L hotkey-overlay-title="Lock screen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
-  Super+Shift+S hotkey-overlay-title="Lock and suspend" { spawn-sh "noctalia-shell ipc call sessionMenu lockAndSuspend"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
-  XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness decrease"; }
-
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
   XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -200,4 +188,5 @@ binds {
 }
 
 include "displays.kdl"
+include "app_bindings.kdl"
 include "shell_config.kdl"

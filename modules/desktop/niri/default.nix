@@ -20,5 +20,12 @@
   home-manager.users.${globals.username} = {
     home.file.".config/niri/config.kdl".source = ./niri.kdl;
     home.file.".config/niri/displays.kdl".text = locals.niriDisplayConfig;
+    home.file.".config/niri/app_bindings.kdl".text = ''
+      binds {
+        Mod+T hotkey-overlay-title="Open a Terminal" { spawn "${globals.terminal}"; }
+        Mod+B hotkey-overlay-title="Open a Browser" { spawn "firefox"; }
+        Mod+E hotkey-overlay-title="Open a File Explorer" { spawn-sh "${globals.terminal} -e yazi"; }
+      }
+    '';
   };
 }

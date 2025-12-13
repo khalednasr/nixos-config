@@ -2,8 +2,8 @@ spawn-sh-at-startup "noctalia-shell"
 
 binds {
   Mod+D hotkey-overlay-title="Run an Application: noctalia-launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-  Super+Shift+L hotkey-overlay-title="Lock screen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
-  Super+Shift+S hotkey-overlay-title="Lock and suspend" { spawn-sh "noctalia-shell ipc call sessionMenu lockAndSuspend"; }
+  Mod+Shift+L hotkey-overlay-title="Lock screen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+  Mod+Shift+S hotkey-overlay-title="Lock and suspend" { spawn-sh "noctalia-shell ipc call sessionMenu lockAndSuspend"; }
   XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
   XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness decrease"; }
 }

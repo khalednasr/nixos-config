@@ -87,7 +87,7 @@
       templates = {
         gtk = true;
         qt = true;
-        kitty = true;
+        ${globals.terminal} = true;
         niri = true;
       };
     };
