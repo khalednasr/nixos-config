@@ -177,7 +177,7 @@
   "matugenTemplateDgop": true,
   "matugenTemplateKcolorscheme": true,
   "matugenTemplateVscode": false,
-  "showDock": true,
+  "showDock": false,
   "dockAutoHide": false,
   "dockGroupByApp": true,
   "dockOpenOnOverview": false,

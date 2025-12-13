@@ -12,6 +12,8 @@ rec {
   locale = "en_US.UTF-8";
   timeZone = "Europe/Berlin";
 
+  shell = "fish";
+
   desktopGreeter = "tuigreet";
   desktopShell = "dms";
   terminal = "ghostty";

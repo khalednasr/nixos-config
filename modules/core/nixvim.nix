@@ -175,6 +175,9 @@
     # Custom keymaps
     globals.mapleader = " ";
     keymaps = [
+      # Command line
+      { key = "ö"; action = ":"; mode = "n"; options.desc = "Command line"; }
+
       # Buffers
       { key = "H"; action = "<cmd>bp<cr>"; mode = "n"; options.desc = "Previous buffer"; }
       { key = "L"; action = "<cmd>bn<cr>"; mode = "n"; options.desc = "Next buffer"; }
@@ -185,8 +188,8 @@
       { key = "<C-S-l>"; action = "20zl"; mode = ["n"]; options.desc = "Scroll right"; }
 
       # Flash navigation
-      { key = "f"; action.__raw = "function() require(\"flash\").jump() end"; mode = ["n" "x" "o"]; options.desc = "Flash jump"; }
-      { key = "F"; action.__raw = "function() require(\"flash\").treesitter() end"; mode = ["n" "x" "o"]; options.desc = "Flash treesitter"; }
+      { key = "ä"; action.__raw = "function() require(\"flash\").jump() end"; mode = ["n" "x" "o"]; options.desc = "Flash jump"; }
+      { key = "Ä"; action.__raw = "function() require(\"flash\").treesitter() end"; mode = ["n" "x" "o"]; options.desc = "Flash treesitter"; }
 
       # Add empty lines in normal mode
       { key = "<leader>o"; action = "o<ESC>"; mode = ["n"]; options.desc = "Add empty line below"; }

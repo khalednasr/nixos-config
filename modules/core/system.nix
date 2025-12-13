@@ -51,7 +51,7 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.zsh; # set default shell
+    shell = pkgs.${globals.shell}; # set default shell
     ignoreShellProgramCheck = true;
   };
 
