@@ -19,7 +19,7 @@
     fzf = {
       enable = true;
       enableZshIntegration = (globals.shell == "zsh");
-      enableFishIntegration = (globals.shell == "fish");
+      enableFishIntegration = false; # fzf plugin takes care of integration
     };
 
     direnv = {
