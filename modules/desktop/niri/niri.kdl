@@ -25,7 +25,8 @@ cursor {
 
 layout {
   gaps 16
-  center-focused-column "never"
+  center-focused-column "on-overflow"
+  always-center-single-column
   default-column-width { proportion 0.5; }
   preset-column-widths {
     proportion 0.5
