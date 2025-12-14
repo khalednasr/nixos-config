@@ -6,6 +6,8 @@
   ];
 
   home.shellAliases = {
+    cd = "z";
+
     nec = "cd ${globals.repoDir} && nvim";
     nrb = "sudo nixos-rebuild switch --flake path:${globals.repoDir}#${locals.hostName}";
     ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d";
@@ -19,12 +21,19 @@
     fzf = {
       enable = true;
       enableZshIntegration = (globals.shell == "zsh");
-      enableFishIntegration = false; # fzf plugin takes care of integration
+      enableFishIntegration = (globals.shell == "fish");
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = (globals.shell == "zsh");
+      enableFishIntegration = (globals.shell == "fish");
     };
 
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      silent = true;
     };
   };
 }
