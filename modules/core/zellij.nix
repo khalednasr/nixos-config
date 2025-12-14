@@ -16,10 +16,13 @@
       extraConfig = ''
         keybinds clear-defaults=true {
           normal {
-            bind "Alt n" { NewPane; }
-            bind "Alt Shift n" { NewTab; }
-            bind "Alt x" { CloseFocus; }
-            bind "Alt Shift x" { CloseTab; }
+            bind "Alt t" { NewPane; }
+            bind "Alt Shift t" { NewTab; }
+            bind "Alt q" { CloseFocus; }
+            bind "Alt Shift q" { CloseTab; }
+
+            bind "Alt s" { LaunchOrFocusPlugin "zellij:session-manager" { floating true; }; }
+            bind "Alt d" { Detach; }
 
             bind "Alt k" { MoveFocus "Up"; }
             bind "Alt j" { MoveFocus "Down"; }
