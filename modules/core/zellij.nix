@@ -51,24 +51,4 @@
       '';
     };
   };
-  # home.file.".config/zellij/layouts/default.kdl".text = ''
-  #   layout {
-  #     swap_tiled_layout name="Default" {
-  #       tab max_panes=2 {
-  #         pane
-  #         pane
-  #       }
-  #       tab {
-  #         pane split_direction="vertical" {
-  #           pane
-  #           pane split_direction="horizontal" {
-  #             pane
-  #             pane
-  #             pane
-  #           }
-  #         }
-  #       }
-  #     }
-  #   }
-  # '';
 }
