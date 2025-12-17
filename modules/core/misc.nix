@@ -7,5 +7,7 @@
     fd
     btop
     gcc
+    devenv
+    nix-index
   ];
 }

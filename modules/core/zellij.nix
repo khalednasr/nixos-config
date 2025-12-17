@@ -10,7 +10,7 @@
 
       settings = {
         show_startup_tips = false;
-        default_layout = "compact";
+        default_layout = "disable-status-bar";
       };
 
       extraConfig = ''
