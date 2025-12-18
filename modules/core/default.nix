@@ -5,7 +5,7 @@
   imports = [
     ./system.nix
     ./network.nix
-    ./distrobox.nix
+    ./virtualization.nix
     ./misc.nix
   ];
 
