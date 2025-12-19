@@ -2,6 +2,7 @@
   hostName = "yoyo";
   laptop = true;
   nordvpn = true;
+  gaming = true;
 
   niriDisplayConfig = ''
     output "California Institute of Technology 0x1410 Unknown" {
