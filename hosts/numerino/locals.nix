@@ -1,6 +1,7 @@
 {
   hostName = "numerino";
   laptop = false;
+  nordvpn = true;
 
   niriDisplayConfig = ''
     output "ASUSTek COMPUTER INC VG27A NCLMQS018692" {

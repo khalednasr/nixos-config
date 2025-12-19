@@ -1,10 +1,14 @@
 # NixOS Module
-{ locals, ... }:
+{ pkgs, locals, ... }:
 {
   networking.hostName = "${locals.hostName}";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -13,5 +17,5 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 }
