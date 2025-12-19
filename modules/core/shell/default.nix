@@ -17,6 +17,10 @@
     npull = "cd ${globals.repoDir}; git pull; cd -";
   };
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   programs = {
     fzf = {
       enable = true;

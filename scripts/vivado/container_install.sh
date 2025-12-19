@@ -3,10 +3,6 @@ WORKING_DIR="/tmp/vivado"
 INSTALLER_NAME=$(basename ${INSTALLER_TAR} .tar)
 INSTALLER_DIR="$WORKING_DIR/$INSTALLER_NAME"
 
-echo $INSTALLER_TAR
-echo $INSTALLER_NAME
-echo $WORKING_DIR
-
 rm -rf $WORKING_DIR
 mkdir -p $WORKING_DIR
 tar -xvf $INSTALLER_TAR -C $WORKING_DIR
@@ -40,3 +36,5 @@ sudo apt-get install -y libasound2t64
 sudo apt-get install -y openssl
 sudo apt-get install -y fdisk 
 sudo apt-get install -y  libsecret-1-dev
+
+distrobox-export --bin $INSTALL_DIR/$VIVADO_VERSION/Vivado/bin/vivado --export-path $HOME/.local/bin
