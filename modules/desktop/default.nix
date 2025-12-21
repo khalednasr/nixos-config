@@ -12,7 +12,7 @@
     ./misc.nix
   ]
   ++ (if locals.laptop then [ ./laptop.nix ] else [ ])
-  ++ (if locals.gaming then [ ./gaming.nix ] else [ ]);
+  ++ (if locals.gaming then [ ./gaming ] else [ ]);
 
   # Home manager modules
   home-manager.users.${globals.username}.imports = [

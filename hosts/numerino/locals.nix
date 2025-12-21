@@ -3,6 +3,7 @@
   laptop = false;
   nordvpn = true;
   gaming = true;
+  sunshine = true;
 
   niriDisplayConfig = ''
     output "ASUSTek COMPUTER INC VG27A NCLMQS018692" {
