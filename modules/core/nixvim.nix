@@ -3,6 +3,12 @@
 {
   imports = [ inputs.nixvim.homeModules.nixvim ];
 
+  # Set as default editor
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   programs.nixvim = {
     enable = true;
 
