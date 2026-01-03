@@ -10,6 +10,7 @@
     font-family = Maple Mono
     window-inherit-working-directory = false
     working-directory = home
+    shell-integration-features = ssh-terminfo,ssh-env
   ''
   + (
     if globals.desktopShell == "dms" then
