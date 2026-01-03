@@ -24,7 +24,7 @@
       binds {
         Mod+T hotkey-overlay-title="Open a Terminal" { spawn "${globals.terminal}"; }
         Mod+B hotkey-overlay-title="Open a Browser" { spawn "firefox"; }
-        Mod+E hotkey-overlay-title="Open a File Explorer" { spawn-sh "${globals.terminal} -e yazi"; }
+        Mod+E hotkey-overlay-title="Open a File Explorer" { spawn-sh "${globals.terminal} -e ${globals.shell} -c yazi"; }
       }
     '';
   };
