@@ -10,12 +10,25 @@
     ];
   };
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
+  networking.firewall.enable = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    # publish = {
+    #   enable = true;
+    #   addresses = true;
+    #   domain = true;
+    #   hinfo = true;
+    #   userServices = true;
+    #   workstation = true;
+    # };
+  };
 }
