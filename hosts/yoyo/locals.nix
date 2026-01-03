@@ -1,5 +1,6 @@
 {
   hostName = "yoyo";
+  nixos = true;
   laptop = true;
   nordvpn = true;
   gaming = true;

@@ -1,0 +1,4 @@
+{
+  hostName = "boxypi";
+  nixos = false;
+}

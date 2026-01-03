@@ -26,7 +26,7 @@
   };
 
   outputs =
-    { nixpkgs, ... }@inputs:
+    { nixpkgs, home-manager, ... }@inputs:
     let
       mkNixosConfig =
         host: modules_list:
@@ -38,22 +38,34 @@
           };
           modules = modules_list;
         };
+
+      mkHomeManagerConfig =
+        host: system: modules_list:
+	home-manager.lib.homeManagerConfiguration {
+	  pkgs = import nixpkgs { inherit system; };
+          modules = modules_list;
+          extraSpecialArgs = {
+            inherit inputs;
+            globals = import ./hosts/globals.nix;
+            locals = import ./hosts/${host}/locals.nix;
+          };
+        };
     in
     {
       nixosConfigurations = {
         yoyo = mkNixosConfig "yoyo" [
           ./hosts/yoyo
-          ./modules/core
-          ./modules/core/gpu/nvidia-amd-hybrid.nix
-          ./modules/desktop
         ];
 
         numerino = mkNixosConfig "numerino" [
           ./hosts/numerino
-          ./modules/core
-          ./modules/core/gpu/nvidia.nix
-          ./modules/desktop
         ];
+      };
+
+      homeConfigurations = {
+      	boxypi = mkHomeManagerConfig "boxypi" "aarch64-linux" [
+	  ./hosts/boxypi
+	];
       };
     };
 }

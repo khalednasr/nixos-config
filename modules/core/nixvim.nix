@@ -1,10 +1,16 @@
 # Home Manager Module
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [ inputs.nixvim.homeModules.nixvim ];
 
   programs.nixvim = {
     enable = true;
+
+    extraPackages = with pkgs; [
+      ripgrep
+      fzf
+      fd
+    ];
 
     # Vim options
     opts = {
