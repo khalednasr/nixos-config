@@ -1,5 +1,5 @@
 # Home Manager Module
-{ lib, globals, ... }:
+{ lib, globals, locals, ... }:
 {
   imports = [
     ../../modules/core/shell
@@ -14,11 +14,15 @@
   home.stateVersion = "${globals.stateVersion}";
 
   home.activation = {
-    set_default_shell = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    setDefaultShell = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       SHELL_PATH="${globals.homeDir}/.nix-profile/bin/${globals.shell}"
       ETC_SHELLS="/etc/shells"
       grep -qF -- "$SHELL_PATH" "$ETC_SHELLS" || echo "$SHELL_PATH" | /bin/sudo tee -a "$ETC_SHELLS" > /dev/null
       /bin/sudo /bin/chsh -s $SHELL_PATH ${globals.username}
+    '';
+
+    linkCustomConfigFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      /bin/sudo cp -rsf ${globals.repoDir}/hosts/${locals.hostName}/etc /
     '';
   };
 
