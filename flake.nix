@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/develop";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +25,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixos-raspberrypi/nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -42,9 +46,10 @@
     let
       mkNixosConfig =
         nixosSystem: host: modules:
-        nixpkgs.lib.nixosSystem {
+        nixosSystem {
           specialArgs = {
             inherit inputs;
+            inherit nixos-raspberrypi;
             globals = import ./hosts/globals.nix;
             locals = import ./hosts/${host}/locals.nix;
           };
@@ -59,6 +64,10 @@
 
         numerino = mkNixosConfig nixpkgs.lib.nixosSystem "numerino" [
           ./hosts/numerino
+        ];
+
+        boxypi = mkNixosConfig nixos-raspberrypi.lib.nixosSystemFull "boxypi" [
+          ./hosts/boxypi
         ];
       };
     };

@@ -14,17 +14,21 @@
     firewall.enable = true;
   };
 
+  services.openssh = {
+    enable = true;
+  };
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
   };
 
-  services.tailscale = {
-    enable = true;
-    extraSetFlags = [ "--netfilter-mode=nodivert" ];
-  };
-
-  services.syncthing = {
-    enable = true;
-  };
+  # services.tailscale = {
+  #   enable = true;
+  #   extraSetFlags = [ "--netfilter-mode=nodivert" ];
+  # };
+  #
+  # services.syncthing = {
+  #   enable = true;
+  # };
 }

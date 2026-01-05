@@ -38,7 +38,15 @@
     ];
     shell = pkgs.${globals.shell}; # set default shell
     ignoreShellProgramCheck = true;
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ0U3xU6tYLgE3+jtwSxj3D0Z1rS83CaaEPvaxJf/Th3 nasrk@yoyo"
+    ];
   };
+
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ0U3xU6tYLgE3+jtwSxj3D0Z1rS83CaaEPvaxJf/Th3 nasrk@yoyo"
+  ];
 
   # Home manager
   imports = [ inputs.home-manager.nixosModules.home-manager ];
