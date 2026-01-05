@@ -1,4 +1,5 @@
 {
   hostName = "boxypi";
-  nixos = false;
+  laptop = false;
+  nordvpn = true;
 }

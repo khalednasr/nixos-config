@@ -1,7 +1,9 @@
 {
   description = "NixOS Configuration";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,47 +27,39 @@
     };
   };
 
+  nixConfig = {
+    extra-substituters = [
+      "https://nixos-raspberrypi.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+    ];
+    connect-timeout = 5;
+  };
+
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    { nixpkgs, home-manager, nixos-raspberrypi, ... }@inputs:
     let
       mkNixosConfig =
-        host: modules_list:
+        nixosSystem: host: modules:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             globals = import ./hosts/globals.nix;
             locals = import ./hosts/${host}/locals.nix;
           };
-          modules = modules_list;
-        };
-
-      mkHomeManagerConfig =
-        host: system: modules_list:
-	home-manager.lib.homeManagerConfiguration {
-	  pkgs = import nixpkgs { inherit system; };
-          modules = modules_list;
-          extraSpecialArgs = {
-            inherit inputs;
-            globals = import ./hosts/globals.nix;
-            locals = import ./hosts/${host}/locals.nix;
-          };
+          inherit modules;
         };
     in
     {
       nixosConfigurations = {
-        yoyo = mkNixosConfig "yoyo" [
+        yoyo = mkNixosConfig nixpkgs.lib.nixosSystem "yoyo" [
           ./hosts/yoyo
         ];
 
-        numerino = mkNixosConfig "numerino" [
+        numerino = mkNixosConfig nixpkgs.lib.nixosSystem "numerino" [
           ./hosts/numerino
         ];
-      };
-
-      homeConfigurations = {
-      	boxypi = mkHomeManagerConfig "boxypi" "aarch64-linux" [
-	  ./hosts/boxypi
-	];
       };
     };
 }
