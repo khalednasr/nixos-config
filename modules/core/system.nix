@@ -7,15 +7,21 @@
   ...
 }:
 {
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.fontSize = 42;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    # Bootloader.
+    loader.grub.enable = true;
+    loader.grub.device = "nodev";
+    loader.grub.useOSProber = true;
+    loader.grub.efiSupport = true;
+    loader.grub.fontSize = 42;
+    loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+    # Kernel
+    kernelPackages = pkgs.linuxPackages_zen;
+
+    # Emulated cross-compilation
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+  };
 
   # Time zone and internationalisation properties
   time.timeZone = "${globals.timeZone}";
