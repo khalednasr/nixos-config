@@ -1,34 +1,30 @@
 # NixOS Module
 { pkgs, locals, ... }:
 {
-  networking.hostName = "${locals.hostName}";
+  networking = {
+    hostName = "${locals.hostName}";
 
-  networking.networkmanager = {
-    enable = true;
-    plugins = with pkgs; [
-      networkmanager-openvpn
-    ];
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+      ];
+    };
+
+    firewall.enable = true;
   };
-
-
-  networking.firewall.enable = true;
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   services.avahi = {
     enable = true;
     nssmdns4 = true;
-    # publish = {
-    #   enable = true;
-    #   addresses = true;
-    #   domain = true;
-    #   hinfo = true;
-    #   userServices = true;
-    #   workstation = true;
-    # };
+  };
+
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = [ "--netfilter-mode=nodivert" ];
+  };
+
+  services.syncthing = {
+    enable = true;
   };
 }
