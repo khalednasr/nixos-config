@@ -12,7 +12,7 @@
 
   # Home manager modules
   home-manager.users.${globals.username}.imports = [
-    ../desktop/terminal/wezterm.nix # for cli in remote sessions
+    ../../modules/desktop/terminal/wezterm.nix # for cli in remote sessions
   ];
 
   # Initial credentials
