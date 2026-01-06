@@ -1,5 +1,6 @@
 { globals, ... }:
 {
+  # NixOS modules
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
@@ -7,6 +8,11 @@
     ./host-packages.nix
 
     ../../modules/core
+  ];
+
+  # Home manager modules
+  home-manager.users.${globals.username}.imports = [
+    ../desktop/terminal/wezterm.nix # for cli in remote sessions
   ];
 
   # Initial credentials

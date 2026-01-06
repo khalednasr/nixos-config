@@ -16,6 +16,5 @@
     ./git.nix
     ./nixvim.nix
     ./yazi.nix
-    ../desktop/terminal/wezterm.nix # for cli in remote sessions
   ];
 }
