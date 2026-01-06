@@ -16,7 +16,7 @@ rec {
 
   desktopGreeter = "tuigreet";
   desktopShell = "dms";
-  terminal = "ghostty";
+  terminal = "wezterm";
 
   stateVersion = "26.05";
 }

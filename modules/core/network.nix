@@ -23,12 +23,7 @@
     nssmdns4 = true;
   };
 
-  # services.tailscale = {
-  #   enable = true;
-  #   extraSetFlags = [ "--netfilter-mode=nodivert" ];
-  # };
-  #
-  # services.syncthing = {
-  #   enable = true;
-  # };
+  services.syncthing = {
+    enable = true;
+  };
 }

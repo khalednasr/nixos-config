@@ -16,6 +16,5 @@
     ./git.nix
     ./nixvim.nix
     ./yazi.nix
-    ./zellij.nix
   ];
 }
