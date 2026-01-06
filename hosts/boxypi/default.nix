@@ -8,6 +8,7 @@
     ./host-packages.nix
 
     ../../modules/core
+    ../../modules/desktop
   ];
 
   # Home manager modules

@@ -4,6 +4,7 @@
   nordvpn = true;
   gaming = true;
   sunshine = false;
+  social = true;
 
   niriDisplayConfig = ''
     output "California Institute of Technology 0x1410 Unknown" {
