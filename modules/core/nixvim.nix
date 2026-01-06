@@ -16,6 +16,7 @@
       ripgrep
       fzf
       fd
+      gcc
     ];
 
     # Vim options
