@@ -65,7 +65,7 @@
           ./hosts/numerino
         ];
 
-        boxypi = mkNixosConfig nixos-raspberrypi.lib.nixosSystemFull "boxypi" [
+        boxypi = mkNixosConfig nixos-raspberrypi.lib.nixosSystem "boxypi" [
           ./hosts/boxypi
         ];
       };
