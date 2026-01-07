@@ -14,7 +14,6 @@ rec {
 
   shell = "fish";
 
-  desktopGreeter = "tuigreet";
   desktopShell = "dms";
   terminal = "wezterm";
   browser = "firefox";
