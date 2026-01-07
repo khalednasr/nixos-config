@@ -7,6 +7,5 @@
   social = false;
 
   niriDisplayConfig = ''
-    }
   '';
 }
