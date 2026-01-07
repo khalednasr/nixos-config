@@ -18,6 +18,6 @@
   home-manager.users.${globals.username}.imports = [
     ./shell
     ./terminal
-    ./firefox.nix
+    ./browser
   ];
 }

@@ -23,7 +23,7 @@
     home.file.".config/niri/app_bindings.kdl".text = ''
       binds {
         Mod+T hotkey-overlay-title="Open a Terminal" { spawn "${globals.terminal}"; }
-        Mod+B hotkey-overlay-title="Open a Browser" { spawn "firefox"; }
+        Mod+B hotkey-overlay-title="Open a Browser" { spawn "${globals.browser}"; }
         Mod+E hotkey-overlay-title="Open a File Explorer" { spawn-sh "${globals.terminal} -e ${globals.shell} -c yazi"; }
       }
     '';

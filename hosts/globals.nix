@@ -17,6 +17,7 @@ rec {
   desktopGreeter = "tuigreet";
   desktopShell = "dms";
   terminal = "wezterm";
+  browser = "firefox";
 
   stateVersion = "26.05";
 }
