@@ -15,7 +15,7 @@ rec {
   shell = "fish";
 
   desktopShell = "dms";
-  terminal = "wezterm";
+  terminal = "kitty";
   browser = "firefox";
 
   stateVersion = "26.05";

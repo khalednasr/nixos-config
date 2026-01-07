@@ -10,11 +10,6 @@
       confirm_os_window_close = 0;
     };
 
-    keybindings = {
-      "super+shift+t" = "clone-in-kitty";
-      "ctrl+f>2" = "set_font_size 20";
-    };
-
     extraConfig = (
       if globals.desktopShell == "noctalia" then
         ''
