@@ -16,5 +16,6 @@
     ./git.nix
     ./nixvim.nix
     ./yazi.nix
+    ./tmux.nix
   ];
 }

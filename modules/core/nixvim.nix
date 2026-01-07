@@ -67,6 +67,7 @@
         # Python
         pylsp = {
           enable = true;
+          package = null;
           settings.plugins.pycodestyle = {
             ignore = [ "W391" ];
             maxLineLength = 120;
@@ -74,12 +75,18 @@
         };
 
         # Rust
-        rust_analyzer.enable = true;
-        rust_analyzer.installRustc = true;
-        rust_analyzer.installCargo = true;
+        rust_analyzer = { 
+          enable = true;
+          package = null;
+          installRustc = false;
+          installCargo = false;
+        };
 
         # System Verilog
-        svls.enable = true;
+        svlangserver = { 
+          enable = true;
+          package = null;
+        };
       };
     };
 
