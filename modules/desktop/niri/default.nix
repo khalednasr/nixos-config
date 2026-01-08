@@ -25,7 +25,14 @@
         Mod+T hotkey-overlay-title="Open a Terminal" { spawn "${globals.terminal}"; }
         Mod+B hotkey-overlay-title="Open a Browser" { spawn "${globals.browser}"; }
         Mod+E hotkey-overlay-title="Open a File Explorer" { spawn-sh "${globals.terminal} -e ${globals.shell} -c yazi"; }
-      }
-    '';
+    '' +
+    (
+      if globals.terminal == "kitty" then
+      ''
+        Mod+Shift+T hotkey-overlay-title="Open a Quick Access Terminal" { spawn-sh "kitten quick-access-terminal"; }
+      ''
+      else ""
+    )
+    + "}";
   };
 }

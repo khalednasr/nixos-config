@@ -32,4 +32,10 @@
   home.shellAliases = {
     "ssh" = "kitten ssh";
   };
+
+  home.file.".config/kitty/quick-access-terminal.conf".text = ''
+    lines 40
+    margin_left 200
+    margin_right 200
+  '';
 }
