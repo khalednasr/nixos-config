@@ -1,7 +1,7 @@
 (
   { lib, inputs, ... }:
   let
-    renamePath = inputs.nixpkgs.outPath + "/nixos/modules/rename.nix";
+    renamePath = inputs.nixpkgs-stable.outPath + "/nixos/modules/rename.nix";
     renameModule = import renamePath { inherit lib; };
     moduleFilter =
       module:

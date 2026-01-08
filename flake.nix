@@ -2,31 +2,37 @@
   description = "NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    home-manager-stable = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     nixos-raspberrypi = {
       url = "github:nvmd/nixos-raspberrypi/main";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -41,14 +47,14 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, nixos-raspberrypi, ... }@inputs:
+    { nixpkgs-stable, nixpkgs-unstable, ... }@inputs:
     let
       mkNixosConfig =
-        nixosSystem: host: modules:
+        nixosSystem: home-manager: host: modules:
         nixosSystem {
           specialArgs = {
-            inherit inputs;
-            inherit nixos-raspberrypi;
+            inputs = inputs // { inherit home-manager; };
+            nixos-raspberrypi = inputs.nixos-raspberrypi;
             globals = import ./hosts/globals.nix;
             locals = import ./hosts/${host}/locals.nix;
           };
@@ -57,15 +63,15 @@
     in
     {
       nixosConfigurations = {
-        yoyo = mkNixosConfig nixpkgs.lib.nixosSystem "yoyo" [
+        yoyo = mkNixosConfig nixpkgs-unstable.lib.nixosSystem inputs.home-manager-unstable "yoyo" [
           ./hosts/yoyo
         ];
 
-        numerino = mkNixosConfig nixpkgs.lib.nixosSystem "numerino" [
+        numerino = mkNixosConfig nixpkgs-unstable.lib.nixosSystem inputs.home-manager-unstable "numerino" [
           ./hosts/numerino
         ];
 
-        boxypi = mkNixosConfig nixos-raspberrypi.lib.nixosSystem "boxypi" [
+        boxypi = mkNixosConfig inputs.nixos-raspberrypi.lib.nixosSystem inputs.home-manager-stable "boxypi" [
           ./hosts/boxypi
         ];
       };

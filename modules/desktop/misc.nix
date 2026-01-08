@@ -15,5 +15,14 @@
   environment.systemPackages = with pkgs; [
     filezilla
     caligula
+    onlyoffice-desktopeditors
   ];
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
 }

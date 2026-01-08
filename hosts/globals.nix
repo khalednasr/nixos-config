@@ -18,5 +18,5 @@ rec {
   terminal = "kitty";
   browser = "firefox";
 
-  stateVersion = "26.05";
+  stateVersion = "25.11";
 }

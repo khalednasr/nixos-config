@@ -22,14 +22,14 @@
     enableCalendarEvents = false;
   };
 
-  home.file.".config/gtk-3.0/gtk.css".text = ''@import url("dank-colors.css");'';
-  home.file.".config/gtk-4.0/gtk.css".text = ''@import url("dank-colors.css");'';
   gtk = {
     enable = true;
     theme = {
       name = "adw-gtk3";
       package = pkgs.adw-gtk3;
     };
+    gtk3.extraCss = ''@import url("dank-colors.css");'';
+    gtk4.extraCss = ''@import url("dank-colors.css");'';
   };
 
   home.packages = [
