@@ -11,7 +11,7 @@
     };
 
     keybindings = {
-      "ctrl+shift+h" = "no_op";
+      "alt+t" = "new_os_window_with_cwd";
     };
 
     extraConfig = (
@@ -27,5 +27,9 @@
       else
         ''''
     );
+  };
+
+  home.shellAliases = {
+    "ssh" = "kitten ssh";
   };
 }
