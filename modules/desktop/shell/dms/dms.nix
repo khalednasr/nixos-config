@@ -57,8 +57,8 @@
     };
   };
 
-  home.file."./.config/DankMaterialShell/settings.json".source = ./settings.json;
-  home.file."./.config/niri/shell_config.kdl".source = ./niri_shell_config.kdl;
+  home.file."./.config/DankMaterialShell/settings.json".source = ./dms-settings.json;
+  home.file."./.config/niri/shell-config.kdl".source = ./niri-shell-config.kdl;
 
   # In case dms has never been run and its auto-generated kdl files do not exist
   # in niri configuration, place dummy files there to prevent niri from failing
@@ -67,7 +67,6 @@
     niri_dms_integration = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       mkdir -p ${globals.homeDir}/.config/niri/dms 
       touch ${globals.homeDir}/.config/niri/dms/colors.kdl
-      touch ${globals.homeDir}/.config/niri/dms/wpblur.kdl
       touch ${globals.homeDir}/.config/niri/dms/alttab.kdl
     '';
   };

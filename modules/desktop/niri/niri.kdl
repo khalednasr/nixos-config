@@ -189,5 +189,5 @@ binds {
 }
 
 include "displays.kdl"
-include "app_bindings.kdl"
-include "shell_config.kdl"
+include "app-bindings.kdl"
+include "shell-config.kdl"

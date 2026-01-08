@@ -71,7 +71,8 @@
     {
       "id": "brightnessSlider",
       "enabled": true,
-      "width": 50
+      "width": 50,
+      "deviceName": "ddc:i2c-9"
     },
     {
       "id": "wifi",
@@ -340,6 +341,10 @@
           "enabled": true
         },
         {
+          "id": "clipboard",
+          "enabled": true
+        },
+        {
           "id": "cpuUsage",
           "enabled": true
         },
@@ -349,8 +354,7 @@
         },
         {
           "id": "keyboard_layout_name",
-          "enabled": true,
-          "keyboardLayoutNameCompactMode": true
+          "enabled": true
         },
         {
           "id": "battery",

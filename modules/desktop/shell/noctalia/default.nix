@@ -3,7 +3,7 @@
 {
   # NixOS modules
   imports = [
-    ../../greeters/tuigreet.nix
+    ./tuigreet.nix
     ../../niri
   ];
 

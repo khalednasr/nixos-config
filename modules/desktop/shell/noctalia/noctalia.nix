@@ -126,7 +126,7 @@
     };
   };
 
-  home.file."./.config/niri/shell_config.kdl".source = ./niri_shell_config.kdl;
+  home.file."./.config/niri/shell-config.kdl".source = ./niri-shell-config.kdl;
 
   # In case noctalia-shell has never been run and noctalia.kdl does not exist
   # in niri configuration, place a dummy file there to prevent niri from failing

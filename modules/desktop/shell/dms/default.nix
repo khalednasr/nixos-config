@@ -3,7 +3,7 @@
 {
   # NixOS modules
   imports = [
-    ../../greeters/dmsgreeter.nix
+    ./dms-greeter.nix
     ../../niri
   ];
 
