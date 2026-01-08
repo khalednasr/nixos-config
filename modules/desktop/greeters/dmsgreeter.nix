@@ -5,7 +5,7 @@
     inputs.dankMaterialShell.nixosModules.greeter
   ];
 
-  programs.dankMaterialShell.greeter = {
+  programs.dank-material-shell.greeter = {
     enable = true;
     compositor.name = "niri";
     configHome = "${globals.homeDir}";
