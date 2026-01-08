@@ -56,6 +56,7 @@
     plugins.bufferline.enable = true;
     plugins.visual-multi.enable = true;
     plugins.sleuth.enable = true;
+    plugins.tmux-navigator.enable = true;
 
     # LSP
     plugins.lsp = {
@@ -251,6 +252,9 @@
       { key = "<leader>cr"; action = "<cmd>lua vim.lsp.buf.rename()<cr>"; options.desc = "Rename"; }
       { key = "<leader>ca"; action = "<cmd>lua vim.lsp.buf.code_action()<cr>"; options.desc = "Code actions"; }
       { key = "<leader>ct"; action = "<cmd>lua vim.diagnostic.open_float()<CR>"; options.desc = "Show line diagnostics"; }
+
+      # Disable q: command history shortcut
+      { key = "q:"; action = "<nop>"; options.desc = "Nothing"; }
     ];
   };
 }

@@ -10,6 +10,10 @@
       confirm_os_window_close = 0;
     };
 
+    keybindings = {
+      "ctrl+shift+h" = "no_op";
+    };
+
     extraConfig = (
       if globals.desktopShell == "noctalia" then
         ''
