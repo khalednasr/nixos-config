@@ -5,5 +5,11 @@
     ripgrep
     btop
     ncdu
+    wget
+    curl
+    gnutar
+    zip
+    unzip
+    rar
   ];
 }

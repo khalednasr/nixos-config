@@ -16,6 +16,7 @@
     filezilla
     caligula
     onlyoffice-desktopeditors
+    tigervnc
   ];
 
   services.printing = {
