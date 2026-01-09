@@ -115,7 +115,6 @@
       enable = true;
       modules = {
         ai = {};
-        pairs = {};
         surround = {};
         move = {
           options.reindent_linewise = true;
