@@ -30,7 +30,7 @@
   };
 
   home.shellAliases = {
-    "ssh" = "kitten ssh";
+    "kssh" = "kitten ssh";
   };
 
   home.file.".config/kitty/quick-access-terminal.conf".text = ''

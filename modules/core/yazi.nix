@@ -14,8 +14,7 @@
       ffmpeg
       zoxide
       resvg
-      # _7zz-rar
-      _7zz
+      _7zz-rar
       jq
       poppler
       trash-cli
@@ -23,6 +22,8 @@
 
     settings = {
       mgr.ratio = [0 3 3];
+      
+      opener.open = [ { run = "xdg-open %s"; desc = "Open"; orphan = true; } ];
     };
     
     plugins = with pkgs.yaziPlugins; { 
