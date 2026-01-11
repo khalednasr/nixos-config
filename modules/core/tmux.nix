@@ -1,5 +1,5 @@
 # Home Manager Module
-{ pkgs, globals, ... }:
+{ pkgs, ... }:
 {
   programs = {
     tmux  = {
