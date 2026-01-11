@@ -58,7 +58,8 @@
     plugins.sleuth.enable = true;
     plugins.tmux-navigator.enable = true;
 
-    # LSP
+    # LSP configuration
+    # All servers just configured without installation except nil_ls
     plugins.lsp = {
       enable = true;
       servers = {
@@ -68,6 +69,7 @@
         # Python
         pylsp = {
           enable = true;
+          package = null;
           settings.plugins.pycodestyle = {
             ignore = [ "W391" ];
             maxLineLength = 120;
@@ -77,8 +79,9 @@
         # Rust
         rust_analyzer = { 
           enable = true;
-          installRustc = true;
-          installCargo = true;
+          package = null;
+          installRustc = false;
+          installCargo = false;
         };
       };
     };

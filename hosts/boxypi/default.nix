@@ -10,12 +10,6 @@
     ../../modules/core
   ];
 
-
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-  hardware.graphics.enable = true;
-
   # Initial credentials
   users.mutableUsers = true;
   users.users.root.initialHashedPassword = "$y$j9T$EBGJZhKc1UEufVIlCnPUx0$oJ9sUx4pYh4UjCxnf2ezrkjvMibRKT4XD7UibTIBJCA";

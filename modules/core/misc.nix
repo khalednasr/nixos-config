@@ -3,13 +3,12 @@
 {
   environment.systemPackages = with pkgs; [
     ripgrep
-    btop
+    htop
     ncdu
     wget
     curl
     gnutar
     zip
     unzip
-    rar
   ];
 }
