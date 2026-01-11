@@ -49,6 +49,11 @@
         id = 0;
         name = "default";
         isDefault = true;
+        search = {
+          default = "ddg";
+          privateDefault = "ddg";
+          force = true;
+        };
         settings = {
           # Home page
           "browser.startup.homepage" = "https://this-page-intentionally-left-blank.org/";
@@ -91,7 +96,7 @@
       "keyMappings": "map K previousTab\nmap J nextTab",
       "grabBackFocus": true,
       "newTabUrl": "https://this-page-intentionally-left-blank.org/",
-      "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\ng: https://www.google.com/search?q=%s Google\ny: https://www.youtube.com/results?search_query=%s Youtube\ngm: https://www.google.com/maps?q=%s Google Maps\nnxp: https://search.nixos.org/packages?channel=unstable&query=%s NixOS Packages\nnxo: https://search.nixos.org/options?channel=unstable&query=%s NixOS Options\nhmo: https://home-manager-options.extranix.com/?query=%s&release=master Home Manager Options",
+      "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\nd: https://www.duckduckgo.com/search?q=%s DuckDuckGo\ng: https://www.google.com/search?q=%s Google\ny: https://www.youtube.com/results?search_query=%s Youtube\ngm: https://www.google.com/maps?q=%s Google Maps\nnxp: https://search.nixos.org/packages?channel=unstable&query=%s NixOS Packages\nnxo: https://search.nixos.org/options?channel=unstable&query=%s NixOS Options\nhmo: https://home-manager-options.extranix.com/?query=%s&release=master Home Manager Options",
       "settingsVersion": "2.3.1",
       "exclusionRules": []
     }
