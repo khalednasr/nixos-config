@@ -1,7 +1,6 @@
 {
   hostName = "numerino";
   laptop = false;
-  nordvpn = true;
   gaming = true;
   sunshine = true;
   social = true;

@@ -1,7 +1,6 @@
 {
   hostName = "yoyo";
   laptop = true;
-  nordvpn = true;
   gaming = true;
   sunshine = false;
   social = true;
