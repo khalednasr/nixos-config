@@ -1,7 +1,7 @@
 
-{ pkgs, globals, lib, ... }:
+{ globals, lib, ... }:
 {
-  services.syncthing = {
+  home-manager.users.${globals.username}.services.syncthing = {
     enable = lib.mkForce true;
     guiAddress = "0.0.0.0:8384";
   };

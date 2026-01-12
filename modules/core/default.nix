@@ -16,5 +16,6 @@
     ./nixvim.nix
     ./yazi.nix
     ./tmux.nix
+    ./syncthing.nix
   ];
 }

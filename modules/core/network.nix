@@ -24,10 +24,6 @@
     openFirewall = true;
   };
 
-  services.syncthing = {
-    enable = true;
-  };
-
   environment.systemPackages = with pkgs; [
     wireguard-ui
     wireguard-tools
