@@ -8,6 +8,7 @@
     ./host-packages.nix
 
     ../../modules/core
+    ./syncthing.nix
   ];
 
   # Initial credentials
