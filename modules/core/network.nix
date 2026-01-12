@@ -28,11 +28,9 @@
     enable = true;
   };
 
-
   environment.systemPackages = with pkgs; [
     wireguard-ui
     wireguard-tools
   ];
   networking.firewall.checkReversePath = "loose"; # For wireguard connections
-
 }
