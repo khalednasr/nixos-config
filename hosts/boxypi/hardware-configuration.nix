@@ -8,7 +8,7 @@
 
   fileSystems = {
     "/boot/firmware" = {
-      device = "/dev/disk/by-label/FIRMWARE";
+      device = "/dev/disk/by-uuid/89E3-C3CC";
       fsType = "vfat";
       options = [
         "noatime"
@@ -19,15 +19,15 @@
     };
 
     "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
+      device = "/dev/disk/by-uuid/d68a27e2-b2a1-4669-9dd5-5d235c7be63e";
       fsType = "ext4";
       options = [ "noatime" ];
     };
 
-    "/mnt/s0" = {
-      device = "/dev/disk/by-uuid/38483C25483BDFF4";
-      fsType = "ntfs3";
-      options = [ "noatime" "nofail" ];
+    "/home" = {
+      device = "/dev/disk/by-uuid/92819844-ed02-406e-b534-333f463c1a72";
+      fsType = "ext4";
+      options = [ "noatime" ];
     };
   };
 
