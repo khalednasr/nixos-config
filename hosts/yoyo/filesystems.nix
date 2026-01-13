@@ -1,11 +1,26 @@
 # NixOS Module
-{ ... }:
+{ pkgs, globals, ... }:
 {
   boot.supportedFilesystems = [ "ntfs" ];
 
-  fileSystems."/run/media/windows" = {
-    device = "/dev/disk/by-uuid/9868A51468A4F1E4"; # get UUID using lsblk -f
-    options = ["nofail"];
-    fsType = "ntfs3";
+  environment.systemPackages = [ pkgs.rclone ];
+  environment.etc."rclone-mnt.conf".text = ''
+    [boxypi]
+    type = sftp
+    host = boxypi
+    user = ${globals.username}
+    key_file = /home/${globals.username}/.ssh/id_ed25519
+  '';
+
+  fileSystems."/mnt/share" = {
+    device = "boxypi:/home/${globals.username}/share";
+    fsType = "rclone";
+    options = [
+      "nodev"
+      "nofail"
+      "allow_other"
+      "args2env"
+      "config=/etc/rclone-mnt.conf"
+    ];
   };
 }
