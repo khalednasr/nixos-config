@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     ripgrep
-    htop
+    btop
     ncdu
     wget
     curl
