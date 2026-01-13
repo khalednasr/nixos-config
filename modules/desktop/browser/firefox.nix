@@ -18,6 +18,11 @@
       };
       ExtensionSettings = {
         "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+        "langpack-de@firefox.mozilla.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/deutsch-de-language-pack/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
           # Bitwarden
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
