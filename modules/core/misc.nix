@@ -10,6 +10,7 @@
     gnutar
     zip
     unzip
+    _7zz
     sshfs
   ];
 }

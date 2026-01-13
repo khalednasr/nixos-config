@@ -15,5 +15,7 @@
 
     # Emulated cross-compilation
     binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+    supportedFilesystems = [ "ntfs" ];
   };
 }
