@@ -10,5 +10,6 @@
     gnutar
     zip
     unzip
+    sshfs
   ];
 }
