@@ -215,13 +215,6 @@
       { key = "<leader>d"; action = "\"+d"; mode = ["n" "v"]; options.desc = "Delete into clipboard"; }
       { key = "<leader>p"; action = "\"+p"; mode = ["n" "v"]; options.desc = "Paste from clipboard (after)"; }
       { key = "<leader>P"; action = "\"+P"; mode = ["n" "v"]; options.desc = "Paste from clipboard (before)"; } 
-      { key = "<C-c>"; action = "\"+y"; mode = ["v"]; options.desc = "Copy selection to clipboard"; }
-      { key = "<C-x>"; action = "\"+d"; mode = ["v"]; options.desc = "Cut selection to clipboard"; }
-      { key = "<C-v>"; action = "<ESC>\"+pa"; mode = ["i"]; options.desc = "Insert from clipboard"; }
-      { key = "<C-v>"; action = "d\"+P"; mode = ["v"]; options.desc = "Replace selection from clipboard"; }
-
-      # Selections
-      { key = "<C-a>"; action = "gg0vG"; mode = ["n"]; options.desc = "Select all"; }
 
       # File explorer and picker
       { key = "<leader>e"; action = "<cmd>Yazi<cr>"; mode = ["n" "v"]; options.desc = "Yazi at current buffer"; }
