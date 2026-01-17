@@ -140,7 +140,7 @@
   "useAutoLocation": true,
   "weatherEnabled": true,
   "networkPreference": "auto",
-  "vpnLastConnected": "",
+  "vpnLastConnected": "7de2829c-8b81-4b7b-a7e2-f513582ff661",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "System Default",
@@ -183,7 +183,7 @@
   "acMonitorTimeout": 0,
   "acLockTimeout": 0,
   "acSuspendTimeout": 0,
-  "acSuspendBehavior": 0,
+  "acSuspendBehavior": 1,
   "acProfileName": "",
   "batteryMonitorTimeout": 0,
   "batteryLockTimeout": 0,
@@ -285,9 +285,10 @@
     "poweroff",
     "lock",
     "suspend",
-    "restart"
+    "restart",
+    "hibernate"
   ],
-  "powerMenuDefaultAction": "suspend",
+  "powerMenuDefaultAction": "hibernate",
   "powerMenuGridLayout": false,
   "customPowerActionLock": "",
   "customPowerActionLogout": "",

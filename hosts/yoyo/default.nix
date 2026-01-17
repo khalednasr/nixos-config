@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
+    ./hibernation.nix
     ./filesystems.nix
     ./host-packages.nix
     ../../modules/core
