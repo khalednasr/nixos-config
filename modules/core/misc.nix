@@ -12,5 +12,6 @@
     unzip
     _7zz
     sshfs
+    usbutils
   ];
 }
