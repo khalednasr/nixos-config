@@ -70,6 +70,10 @@
           ./hosts/numerino
         ];
 
+        toobig = mkNixosConfig nixpkgs-unstable.lib.nixosSystem inputs.home-manager-unstable "toobig" [
+          ./hosts/toobig
+        ];
+
         boxypi = mkNixosConfig inputs.nixos-raspberrypi.lib.nixosSystem inputs.home-manager-stable "boxypi" [
           ./hosts/boxypi
         ];
