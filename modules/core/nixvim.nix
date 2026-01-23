@@ -59,7 +59,6 @@
     plugins.tmux-navigator.enable = true;
 
     # LSP configuration
-    # All servers just configured without installation except nil_ls
     plugins.lsp = {
       enable = true;
       servers = {
@@ -69,20 +68,17 @@
         # Python
         basedpyright = {
           enable = true;
-          package = null;
           settings = {
             basedpyright.analysis.typeCheckingMode = "off"; # sorry
           };
         };
         ruff = {
           enable = true;
-          package = null;
         };
 
         # Rust
         rust_analyzer = { 
           enable = true;
-          package = null;
           installRustc = false;
           installCargo = false;
         };
