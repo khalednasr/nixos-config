@@ -11,7 +11,7 @@
     loader.efi.canTouchEfiVariables = true;
 
     # Kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # Emulated cross-compilation
     binfmt.emulatedSystems = [ "aarch64-linux" ];
