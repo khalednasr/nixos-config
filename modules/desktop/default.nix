@@ -7,6 +7,7 @@
     ./services.nix
     ./bluetooth.nix
     ./ddcutil.nix
+    ./orcaslicer.nix
     ./misc.nix
   ]
   ++ (if locals.laptop then [ ./laptop.nix ] else [ ])
