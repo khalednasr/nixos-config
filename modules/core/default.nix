@@ -6,6 +6,7 @@
     ./system.nix
     ./network.nix
     ./virtualization.nix
+    ./nordvpn.nix
     ./misc.nix
   ];
 
