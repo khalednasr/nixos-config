@@ -53,7 +53,7 @@
     extraConfig = (
       if globals.desktopShell == "noctalia" then
         ''
-          include current-theme.conf
+          include themes/noctalia.conf
         ''
       else if globals.desktopShell == "dms" then
         ''

@@ -44,7 +44,7 @@
           ];
           right = [
             { id = "Tray"; }
-            { id = "NotificationHistory"; }
+            { id = "VPN"; }
           ]
           ++ (if locals.laptop then [ { id = "Battery"; } ] else [ ])
           ++ [
