@@ -7,6 +7,7 @@
     ./network.nix
     ./virtualization.nix
     ./nordvpn.nix
+    ./transmission-openvpn.nix
     ./misc.nix
   ];
 

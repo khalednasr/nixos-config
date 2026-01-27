@@ -30,6 +30,7 @@
 
   # User configuration
   users.users.${globals.username} = {
+    uid = globals.userUID;
     isNormalUser = true;
     description = "${globals.userDescription}";
     extraGroups = [

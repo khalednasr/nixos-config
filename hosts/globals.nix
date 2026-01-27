@@ -1,5 +1,6 @@
 rec {
   username = "nasrk";
+  userUID = 1000;
   userDescription = "Khaled";
   gitUsername = "khalednasr";
   gitEmail = "k.nasr92@gmail.com";
