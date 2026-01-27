@@ -19,6 +19,7 @@
       ExtensionSettings = {
         "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
         "langpack-de@firefox.mozilla.org" = {
+          # German
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/deutsch-de-language-pack/latest.xpi";
           installation_mode = "force_installed";
           private_browsing = true;
@@ -44,6 +45,12 @@
         "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
           # Vimium
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        "transmitter@unrelenting.technology" = {
+          # Transmission
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/transmitter-for-transmission/latest.xpi";
           installation_mode = "force_installed";
           private_browsing = true;
         };
