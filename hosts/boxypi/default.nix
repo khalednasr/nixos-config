@@ -9,6 +9,7 @@
 
     ../../modules/core
     ./syncthing.nix
+    ./minidlna.nix
   ];
 
   # Initial credentials
