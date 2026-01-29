@@ -8,6 +8,7 @@
     ./host-packages.nix
 
     ../../modules/core
+    ../../modules/core/transmission-openvpn.nix
     ./syncthing.nix
     ./minidlna.nix
   ];
