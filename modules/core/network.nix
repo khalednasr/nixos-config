@@ -29,4 +29,7 @@
     wireguard-tools
   ];
   networking.firewall.checkReversePath = "loose"; # For wireguard connections
+
+  # For internet sharing with Network Manager
+  networking.firewall.allowedUDPPorts = [ 53 67 ];
 }
