@@ -52,7 +52,9 @@
         nixosSystem: home-manager: host: modules:
         nixosSystem {
           specialArgs = {
-            inputs = inputs // { inherit home-manager; };
+            inputs = inputs // {
+              inherit home-manager;
+            };
             nixos-raspberrypi = inputs.nixos-raspberrypi;
             globals = import ./hosts/globals.nix;
             locals = import ./hosts/${host}/locals.nix;
@@ -74,9 +76,17 @@
           ./hosts/toobig
         ];
 
-        boxypi = mkNixosConfig inputs.nixos-raspberrypi.lib.nixosSystem inputs.home-manager-stable "boxypi" [
-          ./hosts/boxypi
-        ];
+        boxypi =
+          mkNixosConfig inputs.nixos-raspberrypi.lib.nixosSystem inputs.home-manager-stable "boxypi"
+            [
+              ./hosts/boxypi
+            ];
       };
+
+      homeModules.devtools =
+        { ... }:
+        {
+          imports = [ ./modules/core/devtools ];
+        };
     };
 }

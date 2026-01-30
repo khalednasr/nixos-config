@@ -1,7 +1,7 @@
-# NixOS Module
+# Home Manager Module
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     ripgrep
     btop
     ncdu
