@@ -1,5 +1,5 @@
 # Home Manager Module
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   programs.fish = {
     enable = true;
@@ -22,4 +22,26 @@
       end
     '';
   };
+
+  programs = {
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      silent = true;
+    };
+  };
+
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 }

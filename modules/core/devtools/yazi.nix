@@ -1,10 +1,9 @@
 # Home Manager Module
-{ pkgs, globals, ... }:
+{ pkgs, ... }:
 {
   programs.yazi = {
     enable = true;
-    enableZshIntegration = (globals.shell == "zsh");
-    enableFishIntegration = (globals.shell == "fish");
+    enableFishIntegration = true;
     shellWrapperName = "y";
 
     extraPackages = with pkgs; [

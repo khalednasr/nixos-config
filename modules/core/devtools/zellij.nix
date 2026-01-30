@@ -1,11 +1,10 @@
 # Home Manager Module
-{ globals, ... }:
+{ ... }:
 {
   programs = {
     zellij = {
       enable = true;
-      enableZshIntegration = (globals.shell == "zsh");
-      enableFishIntegration = (globals.shell == "fish");
+      enableFishIntegration = true;
       exitShellOnExit = true;
 
       settings = {

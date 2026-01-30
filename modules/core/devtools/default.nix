@@ -2,7 +2,7 @@
 { ... }:
 {
   imports = [
-    ./shell
+    ./shell.nix
     ./git.nix
     ./nixvim.nix
     ./yazi.nix
