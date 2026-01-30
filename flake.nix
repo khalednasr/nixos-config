@@ -2,17 +2,17 @@
   description = "NixOS Configuration";
 
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager-stable = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
-    };
-
-    home-manager-unstable = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nixos-raspberrypi = {
@@ -22,17 +22,17 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -46,7 +46,7 @@
   };
 
   outputs =
-    { nixpkgs-stable, nixpkgs-unstable, ... }@inputs:
+    { nixpkgs, nixpkgs-stable, ... }@inputs:
     let
       mkNixosConfig =
         nixosSystem: home-manager: host: modules:
@@ -64,15 +64,15 @@
     in
     {
       nixosConfigurations = {
-        yoyo = mkNixosConfig nixpkgs-unstable.lib.nixosSystem inputs.home-manager-unstable "yoyo" [
+        yoyo = mkNixosConfig nixpkgs.lib.nixosSystem inputs.home-manager "yoyo" [
           ./hosts/yoyo
         ];
 
-        numerino = mkNixosConfig nixpkgs-unstable.lib.nixosSystem inputs.home-manager-unstable "numerino" [
+        numerino = mkNixosConfig nixpkgs.lib.nixosSystem inputs.home-manager "numerino" [
           ./hosts/numerino
         ];
 
-        toobig = mkNixosConfig nixpkgs-unstable.lib.nixosSystem inputs.home-manager-unstable "toobig" [
+        toobig = mkNixosConfig nixpkgs.lib.nixosSystem inputs.home-manager "toobig" [
           ./hosts/toobig
         ];
 
