@@ -3,19 +3,6 @@ WORKING_DIR="/tmp/vivado"
 INSTALLER_NAME=$(basename ${INSTALLER_TAR} .tar)
 INSTALLER_DIR="$WORKING_DIR/$INSTALLER_NAME"
 
-rm -rf $WORKING_DIR
-mkdir -p $WORKING_DIR
-tar -xvf $INSTALLER_TAR -C $WORKING_DIR
-
-cd $INSTALLER_DIR
-./xsetup --agree XilinxEULA,3rdPartyEULA \
-  --batch Install \
-  --config $SCRIPT_DIR/install_config.txt \
-  --location $INSTALL_DIR
-
-cd $HOME
-rm -rf $WORKING_DIR
-
 sudo apt-get update
 sudo apt-get install -y libc6-dev-i386 net-tools
 sudo apt-get install -y graphviz
@@ -36,5 +23,18 @@ sudo apt-get install -y libasound2t64
 sudo apt-get install -y openssl
 sudo apt-get install -y fdisk 
 sudo apt-get install -y  libsecret-1-dev
+
+rm -rf $WORKING_DIR
+mkdir -p $WORKING_DIR
+tar -xvf $INSTALLER_TAR -C $WORKING_DIR
+
+cd $INSTALLER_DIR
+./xsetup --agree XilinxEULA,3rdPartyEULA \
+  --batch Install \
+  --config $SCRIPT_DIR/install_config.txt \
+  --location $INSTALL_DIR
+
+cd $HOME
+rm -rf $WORKING_DIR
 
 distrobox-export --bin $INSTALL_DIR/$VIVADO_VERSION/Vivado/bin/vivado --export-path $HOME/.local/bin

@@ -1,13 +1,14 @@
 #!/bin/sh
+# Evoke with absolute paths only
 CONTAINER_NAME=xilinx
-DISTRO_IMAGE=ubuntu:24.04
+DISTRO_IMAGE=ubuntu:22.04
 INSTALLER_TAR=$1
 INSTALL_DIR=$2
 VIVADO_VERSION=$3
 SCRIPT_DIR=$(dirname "$0")
 
 distrobox rm $CONTAINER_NAME --force
-distrobox create -n $CONTAINER_NAME -i $DISTRO_IMAGE --additional-flags "--env _JAVA_AWT_WM_NONREPARENTING=1"
+distrobox create -n $CONTAINER_NAME -i $DISTRO_IMAGE --additional-packages "fish fzf" --additional-flags "--env _JAVA_AWT_WM_NONREPARENTING=1"
 
 distrobox enter $CONTAINER_NAME \
   --additional-flags \
