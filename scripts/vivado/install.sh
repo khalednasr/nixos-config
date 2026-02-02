@@ -1,7 +1,7 @@
 #!/bin/sh
 # Evoke with absolute paths only
 CONTAINER_NAME=xilinx
-DISTRO_IMAGE=ubuntu:22.04
+DISTRO_IMAGE=ubuntu:24.04
 INSTALLER_TAR=$1
 INSTALL_DIR=$2
 VIVADO_VERSION=$3
