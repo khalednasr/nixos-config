@@ -15,7 +15,7 @@ rec {
 
   shell = "fish";
 
-  desktopShell = "noctalia";
+  desktopShell = "gnome";
   terminal = "kitty";
   browser = "firefox";
 
