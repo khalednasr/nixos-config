@@ -114,6 +114,7 @@ with lib.hm.gvariant;
       default-focus-mode = 1;
       show-window-position-bar = false;
       show-workspace-indicator = false;
+      gesture-workspace-fingers = 0;
       minimap-scale = 0.0;
     };
 
@@ -174,6 +175,10 @@ with lib.hm.gvariant;
       toggle-scratch-layer = [ "" ];
       toggle-scratch-window = [ "" ];
       toggle-top-and-position-bar = [ "" ];
+    };
+
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 }
