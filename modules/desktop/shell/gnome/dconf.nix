@@ -27,7 +27,6 @@ with lib.hm.gvariant;
       move-to-monitor-left = [];
       move-to-monitor-right = [];
       move-to-monitor-up = [];
-      move-to-workspace-1 = [];
       move-to-workspace-down = [];
       move-to-workspace-last = [];
       move-to-workspace-left = ["<Super><Control>p"];
@@ -46,6 +45,10 @@ with lib.hm.gvariant;
       switch-to-workspace-2 = ["<Super>2"];
       switch-to-workspace-3 = ["<Super>3"];
       switch-to-workspace-4 = ["<Super>4"];
+      move-to-workspace-1 = ["<Super><Control>1"];
+      move-to-workspace-2 = ["<Super><Control>2"];
+      move-to-workspace-3 = ["<Super><Control>3"];
+      move-to-workspace-4 = ["<Super><Control>4"];
       switch-to-workspace-last = [];
       switch-to-workspace-left = ["<Super>p"];
       switch-to-workspace-right = ["<Super>n"];
@@ -55,14 +58,23 @@ with lib.hm.gvariant;
     "org/gnome/mutter" = {
       attach-modal-dialogs = false;
       edge-tiling = false;
-      overlay-key = "Super";
+      overlay-key = "";
       workspaces-only-on-primary = false;
+      dynamic-workspaces = false;
+    };
+
+    "org/gnome/mutter/wayland/keybindings" = {
+      restore-shortcuts = [];
     };
 
     "org/gnome/mutter/keybindings" = {
       cancel-input-capture = [];
       toggle-tiled-left = [];
       toggle-tiled-right = [];
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      num-workspaces = 4;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -108,6 +120,7 @@ with lib.hm.gvariant;
       toggle-application-view = [];
       toggle-message-tray = [];
       toggle-quick-settings = [];
+      toggle-overview = ["<Super>d"];
     };
 
     "org/gnome/shell/extensions/paperwm" = {
@@ -115,6 +128,7 @@ with lib.hm.gvariant;
       show-window-position-bar = false;
       show-workspace-indicator = false;
       gesture-workspace-fingers = 0;
+      gesture-enabled = false;
       minimap-scale = 0.0;
     };
 
