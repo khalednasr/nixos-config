@@ -5,10 +5,12 @@
     enable = true;
     shellIntegration.enableZshIntegration = true;
     font.name = "Maple Mono";
+    themeFile = "GruvboxMaterialDarkHard";
 
     settings = {
       confirm_os_window_close = 0;
       enabled_layouts = "fat:bias=80";
+      wayland_titlebar_color = "background";
     };
 
     keybindings = {

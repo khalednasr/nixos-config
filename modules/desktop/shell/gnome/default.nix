@@ -7,9 +7,13 @@
   environment.systemPackages = with pkgs; [
     dconf2nix
     gnomeExtensions.paperwm
+    gnomeExtensions.disable-3-finger-gestures-redux
   ];
 
-  home-manager.users.${globals.username}.imports = [
-    ./dconf.nix
-  ];
+  home-manager.users.${globals.username} = {
+    imports = [
+      ./dconf.nix
+      ./theme.nix
+    ];
+  };
 }

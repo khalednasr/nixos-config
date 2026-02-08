@@ -4,15 +4,25 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "org/gnome/shell" = {
-        enabled-extensions = [
-          pkgs.gnomeExtensions.paperwm.extensionUuid
+        enabled-extensions = with pkgs.gnomeExtensions; [
+          paperwm.extensionUuid
+          disable-3-finger-gestures-redux.extensionUuid
         ];
       };
+
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
 
     "org/gnome/desktop/input-sources" = {
       mru-sources = [ (mkTuple [ "xkb" "de" ]) ];
       sources = [ (mkTuple [ "xkb" "de" ]) (mkTuple [ "xkb" "eg" ]) ];
       xkb-options = [];
+    };
+
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-battery-type = "nothing";
+      sleep-inactive-ac-type = "nothing";
     };
 
     "org/gnome/desktop/wm/keybindings" = {
@@ -29,8 +39,8 @@ with lib.hm.gvariant;
       move-to-monitor-up = [];
       move-to-workspace-down = [];
       move-to-workspace-last = [];
-      move-to-workspace-left = ["<Super><Control>p"];
-      move-to-workspace-right = ["<Super><Control>n"];
+      move-to-workspace-left = [""];
+      move-to-workspace-right = [""];
       move-to-workspace-up = [];
       panel-run-dialog = [];
       switch-applications = [];
@@ -41,17 +51,17 @@ with lib.hm.gvariant;
       switch-input-source-backward = [];
       switch-panels = [];
       switch-panels-backward = [];
-      switch-to-workspace-1 = ["<Super>1"];
-      switch-to-workspace-2 = ["<Super>2"];
-      switch-to-workspace-3 = ["<Super>3"];
-      switch-to-workspace-4 = ["<Super>4"];
-      move-to-workspace-1 = ["<Super><Control>1"];
-      move-to-workspace-2 = ["<Super><Control>2"];
-      move-to-workspace-3 = ["<Super><Control>3"];
-      move-to-workspace-4 = ["<Super><Control>4"];
+      switch-to-workspace-1 = [""];
+      switch-to-workspace-2 = [""];
+      switch-to-workspace-3 = [""];
+      switch-to-workspace-4 = [""];
+      move-to-workspace-1 = [""];
+      move-to-workspace-2 = [""];
+      move-to-workspace-3 = [""];
+      move-to-workspace-4 = [""];
       switch-to-workspace-last = [];
-      switch-to-workspace-left = ["<Super>p"];
-      switch-to-workspace-right = ["<Super>n"];
+      switch-to-workspace-left = [""];
+      switch-to-workspace-right = [""];
       unmaximize = [];
     };
 
@@ -127,9 +137,11 @@ with lib.hm.gvariant;
       default-focus-mode = 1;
       show-window-position-bar = false;
       show-workspace-indicator = false;
-      gesture-workspace-fingers = 0;
-      gesture-enabled = false;
+      gesture-enabled = true;
+      gesture-workspace-fingers = 3;
+      gesture-horizontal-fingers = 3;
       minimap-scale = 0.0;
+      selection-border-radius-bottom = 12;
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
@@ -145,7 +157,7 @@ with lib.hm.gvariant;
       live-alt-tab-scratch = [ "" ];
       live-alt-tab-scratch-backward = [ "" ];
       move-down = [ "<Control><Super>j" ];
-      move-down-workspace = [ "" ];
+      move-down-workspace = [ "<Control><Super>n" ];
       move-left = [ "<Control><Super>h" ];
       move-monitor-above = [ "" ];
       move-monitor-below = [ "" ];
@@ -159,7 +171,7 @@ with lib.hm.gvariant;
       move-space-monitor-left = [ "" ];
       move-space-monitor-right = [ "" ];
       move-up = [ "<Control><Super>k" ];
-      move-up-workspace = [ "" ];
+      move-up-workspace = [ "<Control><Super>p" ];
       new-window = [ "" ];
       previous-workspace = [ "" ];
       previous-workspace-backward = [ "" ];
@@ -169,7 +181,7 @@ with lib.hm.gvariant;
       swap-monitor-left = [ "" ];
       swap-monitor-right = [ "" ];
       switch-down = [ "<Super>j" ];
-      switch-down-workspace = [ "<Shift><Super>j" ];
+      switch-down-workspace = [ "<Super>n" ];
       switch-first = [ "" ];
       switch-focus-mode = [ "" ];
       switch-last = [ "" ];
@@ -183,16 +195,12 @@ with lib.hm.gvariant;
       switch-previous = [ "" ];
       switch-right = [ "<Super>l" ];
       switch-up = [ "<Super>k" ];
-      switch-up-workspace = [ "<Shift><Super>k" ];
+      switch-up-workspace = [ "<Super>p" ];
       take-window = [ "" ];
       toggle-scratch = [ "" ];
       toggle-scratch-layer = [ "" ];
       toggle-scratch-window = [ "" ];
       toggle-top-and-position-bar = [ "" ];
-    };
-
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
     };
   };
 }
