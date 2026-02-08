@@ -142,6 +142,7 @@ with lib.hm.gvariant;
       gesture-horizontal-fingers = 3;
       minimap-scale = 0.0;
       selection-border-radius-bottom = 12;
+      selection-border-size = 12;
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
