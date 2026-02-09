@@ -7,6 +7,7 @@ with lib.hm.gvariant;
         enabled-extensions = with pkgs.gnomeExtensions; [
           paperwm.extensionUuid
           disable-3-finger-gestures-redux.extensionUuid
+          appindicator.extensionUuid
         ];
       };
 

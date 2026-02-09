@@ -8,6 +8,13 @@
     dconf2nix
     gnomeExtensions.paperwm
     gnomeExtensions.disable-3-finger-gestures-redux
+    gnomeExtensions.appindicator
+  ];
+
+  environment.gnome.excludePackages = with pkgs; [ 
+    gnome-tour
+    gnome-user-docs 
+    epiphany
   ];
 
   home-manager.users.${globals.username} = {
