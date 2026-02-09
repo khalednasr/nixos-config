@@ -6,7 +6,6 @@
     ./system.nix
     ./network.nix
     ./virtualization.nix
-    ./nordvpn.nix
   ];
 
   # Home manager modules

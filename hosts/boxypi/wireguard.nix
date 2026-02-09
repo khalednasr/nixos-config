@@ -15,8 +15,6 @@ in
   networking.firewall.allowedUDPPorts = [ 51820 ];
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
-  boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = 1;
-  boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
 
   systemd.services = {
     "${ns}" = {
@@ -65,7 +63,7 @@ in
         ip -n ${ns} addr add ${wgIpv6} dev ${wgDev} || true
         ip netns exec ${ns} wg setconf ${wgDev} ${wgConfigFile}
         ip -n ${ns} link set ${wgDev} up
-        ip -n ${ns} route add default dev ${wgDev}
+        ip -n ${ns} route add default dev ${wgDev} || true
       '';
     };
 

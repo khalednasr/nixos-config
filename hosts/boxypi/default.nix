@@ -1,21 +1,17 @@
-{ pkgs, lib, globals, ... }:
+{ globals, ... }:
 {
   # NixOS modules
   imports = [
+    ../../modules/core
+
     ./hardware-configuration.nix
     ./boot.nix
     ./rename-fix.nix
     ./host-packages.nix
 
-    ../../modules/core
     ./syncthing.nix
     ./wireguard.nix
-    # ../../modules/core/transmission-openvpn.nix
-    # ./minidlna.nix
-    # ./wireguard-sharing.nix
   ];
-
-  networking.networkmanager.enable = lib.mkForce false;
 
   # Initial credentials
   users.mutableUsers = true;
