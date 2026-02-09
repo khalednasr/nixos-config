@@ -1,4 +1,4 @@
-{ pkgs, globals, ... }:
+{ pkgs, lib, globals, ... }:
 {
   # NixOS modules
   imports = [
@@ -8,10 +8,14 @@
     ./host-packages.nix
 
     ../../modules/core
-    ../../modules/core/transmission-openvpn.nix
     ./syncthing.nix
-    ./minidlna.nix
+    ./wireguard.nix
+    # ../../modules/core/transmission-openvpn.nix
+    # ./minidlna.nix
+    # ./wireguard-sharing.nix
   ];
+
+  networking.networkmanager.enable = lib.mkForce false;
 
   # Initial credentials
   users.mutableUsers = true;
