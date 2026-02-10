@@ -15,7 +15,7 @@ let
   vethNsDev = "veth-ns";
 
   # wireguard configuration
-  wgConfigFile = "${globals.homeDir}/.vpn/nl-ams-wg-008.conf";
+  wgConfigFile = "/home/nasrk/.vpn/mullvad/de-fra-401.conf";
   wgIpv4 = "10.72.19.0/32";
   wgIpv6 = "fc00:bbbb:bbbb:bb01::9:12ff/128";
 
