@@ -1,15 +1,10 @@
 # NixOS Module
 { pkgs, globals, ... }:
 {
-  virtualisation = {
-    docker = {
-      enable = true;
-    };
-  };
-
+  virtualisation.docker.enable = true;
   users.users.${globals.username}.extraGroups = [ "docker" ];
 
-  environment.systemPackages = [ 
-    pkgs.distrobox 
+  environment.systemPackages = with pkgs; [
+    distrobox
   ];
 }

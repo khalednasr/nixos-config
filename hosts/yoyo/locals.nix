@@ -4,6 +4,7 @@
   gaming = true;
   sunshine = false;
   social = true;
+  virtualization = true;
 
   niriDisplayConfig = ''
     output "California Institute of Technology 0x1410 Unknown" {

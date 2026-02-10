@@ -1,12 +1,12 @@
 # NixOS Module
-{ globals, ... }:
+{ globals, locals, ... }:
 {
   # NixOS modules
   imports = [
     ./system.nix
     ./network.nix
-    ./virtualization.nix
-  ];
+  ]
+  ++ (if locals.virtualization then [ ./virtualization.nix ] else [ ]);
 
   # Home manager modules
   home-manager.users.${globals.username}.imports = [

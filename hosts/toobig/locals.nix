@@ -4,6 +4,7 @@
   gaming = false;
   sunshine = false;
   social = true;
+  virtualization = true;
 
   niriDisplayConfig = ''
   '';

@@ -4,6 +4,7 @@
   gaming = true;
   sunshine = true;
   social = true;
+  virtualization = true;
 
   niriDisplayConfig = ''
     output "ASUSTek COMPUTER INC VG27A NCLMQS018692" {
