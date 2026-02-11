@@ -5,6 +5,7 @@
   imports = [
     ./system.nix
     ./network.nix
+    ./udev.nix
   ]
   ++ (if locals.virtualization then [ ./virtualization.nix ] else [ ]);
 
