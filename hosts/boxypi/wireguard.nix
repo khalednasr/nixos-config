@@ -15,7 +15,7 @@ let
   vethNsDev = "veth-ns";
 
   # wireguard configuration
-  wgConfigFile = "/home/nasrk/.vpn/default.conf";
+  wgConfigFile = "${globals.homeDir}/.vpn/default.conf";
   wgIpv4 = "10.72.19.0/32";
   wgIpv6 = "fc00:bbbb:bbbb:bb01::9:12ff/128";
 
@@ -30,16 +30,30 @@ let
 
   # lan ip address range to be accessed from auxDev
   lanIpv4 = "192.168.178.0/24";
+
+  # transmission
+  transmissionDownloadDir = "${globals.homeDir}/transmission";
 in
 {
   environment.systemPackages = [ pkgs.wireguard-tools ];
 
-  # open firewall for wireguard
-  networking.firewall.allowedUDPPorts = [ 51820 ];
+  networking.firewall.allowedUDPPorts = [ 51820 ]; # wireguard
 
   # allow ip forwarding
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = 1;
+
+  # services.transmission = {
+  #   enable = true;
+  #   openRPCPort = true;
+  #   user = "${globals.username}";
+  #   settings = {
+  #     # download-dir = transmissionDownloadDir;
+  #     incomplete-dir-enabled = false;
+  #     rpc-bind-address = "0.0.0.0";
+  #     rpc-whitelist-enabled = false;
+  #   };
+  # };
 
   systemd.services = {
     # creates vpn namespace
