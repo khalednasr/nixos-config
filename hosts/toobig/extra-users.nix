@@ -1,13 +1,12 @@
 { pkgs, globals, ... }:
 {
-
   users.groups.data = { };
   users.users."${globals.username}".extraGroups = [ "data" ];
 
   users.users.ece = {
     isNormalUser = true;
     description = "Ece";
-    shell = pkgs.${globals.shell}; # set default shell
+    shell = pkgs.${globals.shell};
     ignoreShellProgramCheck = true;
     extraGroups = [ "data" ];
 
