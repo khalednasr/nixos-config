@@ -16,7 +16,10 @@
 
   services.openssh = {
     enable = true;
+    settings.PasswordAuthentication = false;
   };
+
+  services.tailscale.enable = true;
 
   services.avahi = {
     enable = true;
