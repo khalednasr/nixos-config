@@ -9,6 +9,9 @@
 
     # Microchip Technology, Inc. CWA Bootloader
     ATTRS{idVendor}=="04d8", ATTRS{idProduct}=="003c", MODE="664", GROUP="plugdev", TAG+="uaccess"
+
+    # STMicroelectronics STM Device in DFU Mode
+    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="664", GROUP="plugdev", TAG+="uaccess"
   '';
 
   users.groups.plugdev = { };
