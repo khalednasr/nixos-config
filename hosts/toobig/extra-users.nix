@@ -15,6 +15,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOm0mlC0thnDtCGuUwyscbnbVMzQUd6b6pFtpEiTRdt3 nasrk@numerino"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL+sDL0yYN9ZpprywzEe2FhEoVhxD29ufj4b5MYq5L/A nasrk@toobig"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEsh8qoWRNPG1j6dY0bHzTiW/0c1kphmx+RgTLpGw59l"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICyEkR4S+WkAnpJsHI04mMJoap+V8jk4Flkdqc4zee9x ece.guzelkokar@Eces-MacBook-Air.local"
     ];
 
     initialHashedPassword = "$y$j9T$LQGkTFP.XP7L7VeP9BDpZ.$xfFI1QGoQXfMt3BkQwZZgvAxwpktOdxITJJH10AqE1C";

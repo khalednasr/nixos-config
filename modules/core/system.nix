@@ -22,6 +22,7 @@
         "flakes"
       ];
       trusted-users = [ "root" "${globals.username}" ];
+      extra-platforms = [ "aarch64-linux" ];
     };
   };
 
