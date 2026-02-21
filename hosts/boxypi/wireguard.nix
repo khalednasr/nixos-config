@@ -1,4 +1,4 @@
-{ globals, pkgs, ... }:
+{ globals, pkgs, lib, ... }:
 let
   # vpn namespace
   ns = "vpn";
@@ -43,17 +43,19 @@ in
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = 1;
 
-  # services.transmission = {
-  #   enable = true;
-  #   openRPCPort = true;
-  #   user = "${globals.username}";
-  #   settings = {
-  #     # download-dir = transmissionDownloadDir;
-  #     incomplete-dir-enabled = false;
-  #     rpc-bind-address = "0.0.0.0";
-  #     rpc-whitelist-enabled = false;
-  #   };
-  # };
+  services.transmission = {
+    enable = true;
+    openRPCPort = true;
+    user = "${globals.username}";
+    package = pkgs.transmission_4;
+    settings = {
+      download-dir = transmissionDownloadDir;
+      incomplete-dir-enabled = false;
+      rpc-bind-address = "0.0.0.0";
+      rpc-whitelist-enabled = false;
+      message-level = 4;
+    };
+  };
 
   systemd.services = {
     # creates vpn namespace
@@ -161,6 +163,48 @@ in
         # except for traffic meant for lan - this goes over veth
         ip netns exec ${ns} iptables -t nat -A POSTROUTING -d ${lanIpv4} -o ${vethNsDev} -j MASQUERADE
       '';
+    };
+
+    # massage default transmission service to join wireguard namespace
+    transmission = {
+      serviceConfig = {
+        PrivateNetwork = true;
+        Environment = "TRANSMISSION_WEB_HOME=${pkgs.transmission_4}/share/transmission/public_html/";
+        PrivateTmp = true;
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+        ProtectControlGroups = true;
+        NoNewPrivileges = true;
+        MemoryDenyWriteExecute = true;
+        BindReadOnlyPaths = [
+          "${pkgs.writeText "resolv.conf" "nameserver 9.9.9.9"}:/etc/resolv.conf"
+        ];
+        ProtectSystem = "strict";
+        ReadWritePaths = [ transmissionDownloadDir ];
+      };
+      unitConfig = {
+        BindsTo = "${ns}.service";
+        After = lib.mkForce "${ns}.service";
+        Requires = lib.mkForce "${ns}.service";
+        JoinsNamespaceOf = "${ns}.service";
+      };
+    };
+
+    # talk to transimission UI from default netns by making abridge with socat
+    transmission_forward_port = {
+      serviceConfig = {
+        ExecStart = ''${pkgs.socat}/bin/socat tcp-listen:9091,fork,reuseaddr exec:"ip netns exec ${ns} socat STDIO tcp-connect\:127.0.0.1\:9091",nofork'';
+      };
+      path = with pkgs; [
+        socat
+        iproute2
+      ];
+      wantedBy = [ "multi-user.target" ];
+      unitConfig = {
+        BindsTo = "${ns}.service";
+        After = "${ns}.service";
+        Requires = "${ns}.service";
+      };
     };
   };
 }
