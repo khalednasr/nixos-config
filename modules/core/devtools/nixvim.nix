@@ -82,6 +82,11 @@
           installRustc = false;
           installCargo = false;
         };
+
+        # System verilog
+        svls = {
+          enable = true;
+        };
       };
     };
 
