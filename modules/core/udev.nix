@@ -12,6 +12,12 @@
 
     # STMicroelectronics STM Device in DFU Mode
     ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="664", GROUP="plugdev", TAG+="uaccess"
+
+    # Raspberry Pi RP2 Boot
+    ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0003", MODE="664", GROUP="plugdev", TAG+="uaccess"
+
+    # Raspberry Pi Debugprobe on Pico (CMSIS-DAP)
+    ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", MODE="664", GROUP="plugdev", TAG+="uaccess"
   '';
 
   users.groups.plugdev = { };
